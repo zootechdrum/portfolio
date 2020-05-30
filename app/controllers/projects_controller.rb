@@ -37,6 +37,10 @@ class ProjectsController < ApplicationController
     end
   end
 
+  def show 
+    @portfolio_item = Project.find(params[:id])
+  end
+
 
 
 end
