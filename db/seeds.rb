@@ -20,7 +20,7 @@ end
 puts "5 skills created"
 
 9.times do |portfolio_item|
-    Myportfolio.create!(
+    Project.create!(
         title: "Portfolio title: #{portfolio_item}",
         subtitle: "My great service",
         body: "Bacon ipsum dolor amet short loin flank sausage beef ribs pork chop. 
