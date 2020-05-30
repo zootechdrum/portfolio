@@ -2868,3 +2868,546 @@ Processing by ProjectsController#index as HTML
 Completed 200 OK in 13ms (Views: 11.0ms | ActiveRecord: 0.8ms | Allocations: 4934)
 
 
+Started GET "/3/edit" for ::1 at 2020-05-29 23:18:44 -0700
+  [1m[35m (1.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  
+ActionController::RoutingError (No route matches [GET] "/3/edit"):
+  
+actionpack (6.0.3.1) lib/action_dispatch/middleware/debug_exceptions.rb:36:in `call'
+web-console (4.0.2) lib/web_console/middleware.rb:132:in `call_app'
+web-console (4.0.2) lib/web_console/middleware.rb:28:in `block in call'
+web-console (4.0.2) lib/web_console/middleware.rb:17:in `catch'
+web-console (4.0.2) lib/web_console/middleware.rb:17:in `call'
+actionpack (6.0.3.1) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.0.3.1) lib/rails/rack/logger.rb:37:in `call_app'
+railties (6.0.3.1) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.0.3.1) lib/active_support/tagged_logging.rb:80:in `block in tagged'
+activesupport (6.0.3.1) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (6.0.3.1) lib/active_support/tagged_logging.rb:80:in `tagged'
+railties (6.0.3.1) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (6.0.3.1) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.0.3.1) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.2.2) lib/rack/method_override.rb:24:in `call'
+rack (2.2.2) lib/rack/runtime.rb:22:in `call'
+activesupport (6.0.3.1) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.0.3.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.3.1) lib/action_dispatch/middleware/static.rb:126:in `call'
+rack (2.2.2) lib/rack/sendfile.rb:110:in `call'
+actionpack (6.0.3.1) lib/action_dispatch/middleware/host_authorization.rb:82:in `call'
+webpacker (4.2.2) lib/webpacker/dev_server_proxy.rb:23:in `perform_request'
+rack-proxy (0.6.5) lib/rack/proxy.rb:57:in `call'
+railties (6.0.3.1) lib/rails/engine.rb:527:in `call'
+puma (4.3.5) lib/puma/configuration.rb:228:in `call'
+puma (4.3.5) lib/puma/server.rb:713:in `handle_request'
+puma (4.3.5) lib/puma/server.rb:472:in `process_client'
+puma (4.3.5) lib/puma/server.rb:328:in `block in run'
+puma (4.3.5) lib/puma/thread_pool.rb:134:in `block in spawn_thread'
+Started GET "/projects/3/edit" for ::1 at 2020-05-29 23:18:55 -0700
+Processing by ProjectsController#edit as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mProject Load (1.4ms)[0m  [1m[34mSELECT "projects".* FROM "projects" WHERE "projects"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/projects_controller.rb:25:in `edit'
+  Rendering projects/edit.html.erb within layouts/application
+  Rendered projects/edit.html.erb within layouts/application (Duration: 13.6ms | Allocations: 2504)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 100ms (Views: 54.8ms | ActiveRecord: 11.2ms | Allocations: 16004)
+
+
+Started PATCH "/projects/3" for ::1 at 2020-05-29 23:19:08 -0700
+Processing by ProjectsController#update as HTML
+  Parameters: {"authenticity_token"=>"u9fn/D8UZDPfHxSfmbSoQ7U+4ORvfbhzgtQMMIe33qzDTu+yN+UFfbilyJsO7cA8eLkBcL0qR/Z50qJGMPIGzw==", "project"=>{"title"=>"Portfolio title: 2", "subtitle"=>"Fuck You"}, "commit"=>"Update Project", "id"=>"3"}
+  [1m[36mProject Load (0.5ms)[0m  [1m[34mSELECT "projects".* FROM "projects" WHERE "projects"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/projects_controller.rb:31:in `block in update'
+Completed 500 Internal Server Error in 159ms (ActiveRecord: 0.5ms | Allocations: 83841)
+
+
+  
+NameError (undefined local variable or method `blog_params' for #<ProjectsController:0x00007fbab59dd128>
+Did you mean?  blog_path):
+  
+app/controllers/projects_controller.rb:32:in `block in update'
+app/controllers/projects_controller.rb:30:in `update'
+Started PATCH "/projects/3" for ::1 at 2020-05-29 23:19:45 -0700
+Processing by ProjectsController#update as HTML
+  Parameters: {"authenticity_token"=>"u9fn/D8UZDPfHxSfmbSoQ7U+4ORvfbhzgtQMMIe33qzDTu+yN+UFfbilyJsO7cA8eLkBcL0qR/Z50qJGMPIGzw==", "project"=>{"title"=>"Portfolio title: 2", "subtitle"=>"Fuck You"}, "commit"=>"Update Project", "id"=>"3"}
+  [1m[36mProject Load (0.4ms)[0m  [1m[34mSELECT "projects".* FROM "projects" WHERE "projects"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/projects_controller.rb:31:in `block in update'
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/projects_controller.rb:32:in `block in update'
+  [1m[36mProject Update (0.7ms)[0m  [1m[33mUPDATE "projects" SET "subtitle" = $1, "updated_at" = $2 WHERE "projects"."id" = $3[0m  [["subtitle", "Fuck You"], ["updated_at", "2020-05-30 06:19:45.431698"], ["id", 3]]
+  ↳ app/controllers/projects_controller.rb:32:in `block in update'
+  [1m[35m (1.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/projects_controller.rb:32:in `block in update'
+Redirected to 
+Completed 500 Internal Server Error in 28ms (ActiveRecord: 8.7ms | Allocations: 8468)
+
+
+  
+ActionController::ActionControllerError (Cannot redirect to nil!):
+  
+app/controllers/projects_controller.rb:33:in `block (2 levels) in update'
+app/controllers/projects_controller.rb:30:in `update'
+Started PATCH "/projects/3" for ::1 at 2020-05-29 23:20:05 -0700
+Processing by ProjectsController#update as HTML
+  Parameters: {"authenticity_token"=>"u9fn/D8UZDPfHxSfmbSoQ7U+4ORvfbhzgtQMMIe33qzDTu+yN+UFfbilyJsO7cA8eLkBcL0qR/Z50qJGMPIGzw==", "project"=>{"title"=>"Portfolio title: 2", "subtitle"=>"Fuck You"}, "commit"=>"Update Project", "id"=>"3"}
+  [1m[36mProject Load (0.3ms)[0m  [1m[34mSELECT "projects".* FROM "projects" WHERE "projects"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/projects_controller.rb:31:in `block in update'
+Redirected to http://localhost:3000/projects
+Completed 302 Found in 21ms (ActiveRecord: 7.1ms | Allocations: 5824)
+
+
+Started GET "/projects" for ::1 at 2020-05-29 23:20:05 -0700
+Processing by ProjectsController#index as HTML
+  Rendering projects/index.html.erb within layouts/application
+  [1m[36mProject Load (0.5ms)[0m  [1m[34mSELECT "projects".* FROM "projects"[0m
+  ↳ app/views/projects/index.html.erb:3
+  Rendered projects/index.html.erb within layouts/application (Duration: 4.0ms | Allocations: 1195)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 16ms (Views: 14.6ms | ActiveRecord: 0.5ms | Allocations: 5411)
+
+
+Started GET "/projects/1/edit" for ::1 at 2020-05-29 23:20:29 -0700
+Processing by ProjectsController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mProject Load (0.4ms)[0m  [1m[34mSELECT "projects".* FROM "projects" WHERE "projects"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/projects_controller.rb:25:in `edit'
+  Rendering projects/edit.html.erb within layouts/application
+  Rendered projects/edit.html.erb within layouts/application (Duration: 1.9ms | Allocations: 779)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 12ms (Views: 10.1ms | ActiveRecord: 0.4ms | Allocations: 5251)
+
+
+Started PATCH "/projects/1" for ::1 at 2020-05-29 23:20:40 -0700
+Processing by ProjectsController#update as HTML
+  Parameters: {"authenticity_token"=>"WLGuR7K4Kmpf5QR6Yu6CHHQMiBek4yf7elM6IfWpMakgKKYJuklLJDhf2H71t+pjuYtpg3a02H6BVZRXQuzpyg==", "project"=>{"title"=>"Portfolio title: 0", "subtitle"=>"My great service is complete bull shit"}, "commit"=>"Update Project", "id"=>"1"}
+  [1m[36mProject Load (0.6ms)[0m  [1m[34mSELECT "projects".* FROM "projects" WHERE "projects"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/projects_controller.rb:31:in `block in update'
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/projects_controller.rb:32:in `block in update'
+  [1m[36mProject Update (0.6ms)[0m  [1m[33mUPDATE "projects" SET "subtitle" = $1, "updated_at" = $2 WHERE "projects"."id" = $3[0m  [["subtitle", "My great service is complete bull shit"], ["updated_at", "2020-05-30 06:20:40.726611"], ["id", 1]]
+  ↳ app/controllers/projects_controller.rb:32:in `block in update'
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/projects_controller.rb:32:in `block in update'
+Redirected to http://localhost:3000/projects
+Completed 302 Found in 10ms (ActiveRecord: 1.8ms | Allocations: 3356)
+
+
+Started GET "/projects" for ::1 at 2020-05-29 23:20:40 -0700
+Processing by ProjectsController#index as HTML
+  Rendering projects/index.html.erb within layouts/application
+  [1m[36mProject Load (0.4ms)[0m  [1m[34mSELECT "projects".* FROM "projects"[0m
+  ↳ app/views/projects/index.html.erb:3
+  Rendered projects/index.html.erb within layouts/application (Duration: 2.1ms | Allocations: 1015)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 12ms (Views: 10.5ms | ActiveRecord: 0.4ms | Allocations: 4936)
+
+
+  [1m[35m (1.4ms)[0m  [1m[35mCREATE DATABASE "portfolio_development" ENCODING = 'unicode'[0m
+  [1m[35m (0.7ms)[0m  [1m[35mCREATE DATABASE "portfolio_test" ENCODING = 'unicode'[0m
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35mSQL (0.4ms)[0m  [1m[35mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  [1m[35m (9.0ms)[0m  [1m[35mDROP TABLE IF EXISTS "blogs" CASCADE[0m
+  [1m[35m (8.7ms)[0m  [1m[35mCREATE TABLE "blogs" ("id" bigserial primary key, "title" character varying, "body" text, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (3.5ms)[0m  [1m[35mDROP TABLE IF EXISTS "projects" CASCADE[0m
+  [1m[35m (5.3ms)[0m  [1m[35mCREATE TABLE "projects" ("id" bigserial primary key, "title" character varying, "subtitle" character varying, "body" text, "main_image" text, "thumb_image" text, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (2.8ms)[0m  [1m[35mDROP TABLE IF EXISTS "skills" CASCADE[0m
+  [1m[35m (5.2ms)[0m  [1m[35mCREATE TABLE "skills" ("id" bigserial primary key, "title" character varying, "percent_utilized" integer, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (1.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.7ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::InternalMetadata Load (0.5ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "schema_sha1"], ["LIMIT", 1]]
+  [1m[35mSQL (0.3ms)[0m  [1m[35mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  [1m[35m (8.7ms)[0m  [1m[35mDROP TABLE IF EXISTS "blogs" CASCADE[0m
+  [1m[35m (9.4ms)[0m  [1m[35mCREATE TABLE "blogs" ("id" bigserial primary key, "title" character varying, "body" text, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (3.0ms)[0m  [1m[35mDROP TABLE IF EXISTS "projects" CASCADE[0m
+  [1m[35m (5.8ms)[0m  [1m[35mCREATE TABLE "projects" ("id" bigserial primary key, "title" character varying, "subtitle" character varying, "body" text, "main_image" text, "thumb_image" text, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (2.9ms)[0m  [1m[35mDROP TABLE IF EXISTS "skills" CASCADE[0m
+  [1m[35m (5.4ms)[0m  [1m[35mCREATE TABLE "skills" ("id" bigserial primary key, "title" character varying, "percent_utilized" integer, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (1.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.8ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Update (0.6ms)[0m  [1m[33mUPDATE "ar_internal_metadata" SET "value" = $1, "updated_at" = $2 WHERE "ar_internal_metadata"."key" = $3[0m  [["value", "development"], ["updated_at", "2020-05-30 06:21:39.935839"], ["key", "environment"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.4ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Update (0.5ms)[0m  [1m[33mUPDATE "ar_internal_metadata" SET "value" = $1, "updated_at" = $2 WHERE "ar_internal_metadata"."key" = $3[0m  [["value", "test"], ["updated_at", "2020-05-30 06:21:39.946004"], ["key", "environment"]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "schema_sha1"], ["LIMIT", 1]]
+  [1m[35m (1.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mBlog Create (1.0ms)[0m  [1m[32mINSERT INTO "blogs" ("title", "body", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["title", "My blog Post 0"], ["body", "Corned beef rump swine meatball pork chop short ribs t-bone sirloin chicken bacon pork loin leberkas frankfurter shank. \n        Tongue beef ribs cupim flank swine pancetta. Boudin pork pork belly pork loin filet mignon cow, tongue chislic tenderloin meatloaf pig. Chicken rump spare ribs ham hock kielbasa shoulder chuck kevin frankfurter swine ground round shankle strip steak. \n        Buffalo ball tip pork chop, \n        venison prosciutto salami t-bone hamburger cupim tenderloin tail."], ["created_at", "2020-05-30 06:21:40.023622"], ["updated_at", "2020-05-30 06:21:40.023622"]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mBlog Create (0.3ms)[0m  [1m[32mINSERT INTO "blogs" ("title", "body", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["title", "My blog Post 1"], ["body", "Corned beef rump swine meatball pork chop short ribs t-bone sirloin chicken bacon pork loin leberkas frankfurter shank. \n        Tongue beef ribs cupim flank swine pancetta. Boudin pork pork belly pork loin filet mignon cow, tongue chislic tenderloin meatloaf pig. Chicken rump spare ribs ham hock kielbasa shoulder chuck kevin frankfurter swine ground round shankle strip steak. \n        Buffalo ball tip pork chop, \n        venison prosciutto salami t-bone hamburger cupim tenderloin tail."], ["created_at", "2020-05-30 06:21:40.028963"], ["updated_at", "2020-05-30 06:21:40.028963"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mBlog Create (0.3ms)[0m  [1m[32mINSERT INTO "blogs" ("title", "body", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["title", "My blog Post 2"], ["body", "Corned beef rump swine meatball pork chop short ribs t-bone sirloin chicken bacon pork loin leberkas frankfurter shank. \n        Tongue beef ribs cupim flank swine pancetta. Boudin pork pork belly pork loin filet mignon cow, tongue chislic tenderloin meatloaf pig. Chicken rump spare ribs ham hock kielbasa shoulder chuck kevin frankfurter swine ground round shankle strip steak. \n        Buffalo ball tip pork chop, \n        venison prosciutto salami t-bone hamburger cupim tenderloin tail."], ["created_at", "2020-05-30 06:21:40.033031"], ["updated_at", "2020-05-30 06:21:40.033031"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mBlog Create (0.3ms)[0m  [1m[32mINSERT INTO "blogs" ("title", "body", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["title", "My blog Post 3"], ["body", "Corned beef rump swine meatball pork chop short ribs t-bone sirloin chicken bacon pork loin leberkas frankfurter shank. \n        Tongue beef ribs cupim flank swine pancetta. Boudin pork pork belly pork loin filet mignon cow, tongue chislic tenderloin meatloaf pig. Chicken rump spare ribs ham hock kielbasa shoulder chuck kevin frankfurter swine ground round shankle strip steak. \n        Buffalo ball tip pork chop, \n        venison prosciutto salami t-bone hamburger cupim tenderloin tail."], ["created_at", "2020-05-30 06:21:40.037106"], ["updated_at", "2020-05-30 06:21:40.037106"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mBlog Create (0.3ms)[0m  [1m[32mINSERT INTO "blogs" ("title", "body", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["title", "My blog Post 4"], ["body", "Corned beef rump swine meatball pork chop short ribs t-bone sirloin chicken bacon pork loin leberkas frankfurter shank. \n        Tongue beef ribs cupim flank swine pancetta. Boudin pork pork belly pork loin filet mignon cow, tongue chislic tenderloin meatloaf pig. Chicken rump spare ribs ham hock kielbasa shoulder chuck kevin frankfurter swine ground round shankle strip steak. \n        Buffalo ball tip pork chop, \n        venison prosciutto salami t-bone hamburger cupim tenderloin tail."], ["created_at", "2020-05-30 06:21:40.041284"], ["updated_at", "2020-05-30 06:21:40.041284"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mBlog Create (0.3ms)[0m  [1m[32mINSERT INTO "blogs" ("title", "body", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["title", "My blog Post 5"], ["body", "Corned beef rump swine meatball pork chop short ribs t-bone sirloin chicken bacon pork loin leberkas frankfurter shank. \n        Tongue beef ribs cupim flank swine pancetta. Boudin pork pork belly pork loin filet mignon cow, tongue chislic tenderloin meatloaf pig. Chicken rump spare ribs ham hock kielbasa shoulder chuck kevin frankfurter swine ground round shankle strip steak. \n        Buffalo ball tip pork chop, \n        venison prosciutto salami t-bone hamburger cupim tenderloin tail."], ["created_at", "2020-05-30 06:21:40.045422"], ["updated_at", "2020-05-30 06:21:40.045422"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mBlog Create (0.3ms)[0m  [1m[32mINSERT INTO "blogs" ("title", "body", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["title", "My blog Post 6"], ["body", "Corned beef rump swine meatball pork chop short ribs t-bone sirloin chicken bacon pork loin leberkas frankfurter shank. \n        Tongue beef ribs cupim flank swine pancetta. Boudin pork pork belly pork loin filet mignon cow, tongue chislic tenderloin meatloaf pig. Chicken rump spare ribs ham hock kielbasa shoulder chuck kevin frankfurter swine ground round shankle strip steak. \n        Buffalo ball tip pork chop, \n        venison prosciutto salami t-bone hamburger cupim tenderloin tail."], ["created_at", "2020-05-30 06:21:40.049607"], ["updated_at", "2020-05-30 06:21:40.049607"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mBlog Create (0.3ms)[0m  [1m[32mINSERT INTO "blogs" ("title", "body", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["title", "My blog Post 7"], ["body", "Corned beef rump swine meatball pork chop short ribs t-bone sirloin chicken bacon pork loin leberkas frankfurter shank. \n        Tongue beef ribs cupim flank swine pancetta. Boudin pork pork belly pork loin filet mignon cow, tongue chislic tenderloin meatloaf pig. Chicken rump spare ribs ham hock kielbasa shoulder chuck kevin frankfurter swine ground round shankle strip steak. \n        Buffalo ball tip pork chop, \n        venison prosciutto salami t-bone hamburger cupim tenderloin tail."], ["created_at", "2020-05-30 06:21:40.053713"], ["updated_at", "2020-05-30 06:21:40.053713"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mBlog Create (0.3ms)[0m  [1m[32mINSERT INTO "blogs" ("title", "body", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["title", "My blog Post 8"], ["body", "Corned beef rump swine meatball pork chop short ribs t-bone sirloin chicken bacon pork loin leberkas frankfurter shank. \n        Tongue beef ribs cupim flank swine pancetta. Boudin pork pork belly pork loin filet mignon cow, tongue chislic tenderloin meatloaf pig. Chicken rump spare ribs ham hock kielbasa shoulder chuck kevin frankfurter swine ground round shankle strip steak. \n        Buffalo ball tip pork chop, \n        venison prosciutto salami t-bone hamburger cupim tenderloin tail."], ["created_at", "2020-05-30 06:21:40.057812"], ["updated_at", "2020-05-30 06:21:40.057812"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mBlog Create (0.3ms)[0m  [1m[32mINSERT INTO "blogs" ("title", "body", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["title", "My blog Post 9"], ["body", "Corned beef rump swine meatball pork chop short ribs t-bone sirloin chicken bacon pork loin leberkas frankfurter shank. \n        Tongue beef ribs cupim flank swine pancetta. Boudin pork pork belly pork loin filet mignon cow, tongue chislic tenderloin meatloaf pig. Chicken rump spare ribs ham hock kielbasa shoulder chuck kevin frankfurter swine ground round shankle strip steak. \n        Buffalo ball tip pork chop, \n        venison prosciutto salami t-bone hamburger cupim tenderloin tail."], ["created_at", "2020-05-30 06:21:40.061845"], ["updated_at", "2020-05-30 06:21:40.061845"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mSkill Create (0.7ms)[0m  [1m[32mINSERT INTO "skills" ("title", "percent_utilized", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["title", "Rails 0"], ["percent_utilized", 15], ["created_at", "2020-05-30 06:21:40.077295"], ["updated_at", "2020-05-30 06:21:40.077295"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mSkill Create (0.3ms)[0m  [1m[32mINSERT INTO "skills" ("title", "percent_utilized", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["title", "Rails 1"], ["percent_utilized", 15], ["created_at", "2020-05-30 06:21:40.082302"], ["updated_at", "2020-05-30 06:21:40.082302"]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mSkill Create (0.4ms)[0m  [1m[32mINSERT INTO "skills" ("title", "percent_utilized", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["title", "Rails 2"], ["percent_utilized", 15], ["created_at", "2020-05-30 06:21:40.090928"], ["updated_at", "2020-05-30 06:21:40.090928"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mSkill Create (0.4ms)[0m  [1m[32mINSERT INTO "skills" ("title", "percent_utilized", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["title", "Rails 3"], ["percent_utilized", 15], ["created_at", "2020-05-30 06:21:40.095591"], ["updated_at", "2020-05-30 06:21:40.095591"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mSkill Create (0.5ms)[0m  [1m[32mINSERT INTO "skills" ("title", "percent_utilized", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["title", "Rails 4"], ["percent_utilized", 15], ["created_at", "2020-05-30 06:21:40.101048"], ["updated_at", "2020-05-30 06:21:40.101048"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mProject Create (0.8ms)[0m  [1m[32mINSERT INTO "projects" ("title", "subtitle", "body", "main_image", "thumb_image", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["title", "Portfolio title: 0"], ["subtitle", "My great service"], ["body", "Bacon ipsum dolor amet short loin flank sausage beef ribs pork chop. \n        Prosciutto porchetta \n        spare ribs pork, ham hock filet mignon \n        jowl brisket doner chicken shoulder. Spare ribs leberkas tongue,"], ["main_image", "http://placehold.it/600x400"], ["thumb_image", "http://placehold.it/350x200"], ["created_at", "2020-05-30 06:21:40.122526"], ["updated_at", "2020-05-30 06:21:40.122526"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mProject Create (0.3ms)[0m  [1m[32mINSERT INTO "projects" ("title", "subtitle", "body", "main_image", "thumb_image", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["title", "Portfolio title: 1"], ["subtitle", "My great service"], ["body", "Bacon ipsum dolor amet short loin flank sausage beef ribs pork chop. \n        Prosciutto porchetta \n        spare ribs pork, ham hock filet mignon \n        jowl brisket doner chicken shoulder. Spare ribs leberkas tongue,"], ["main_image", "http://placehold.it/600x400"], ["thumb_image", "http://placehold.it/350x200"], ["created_at", "2020-05-30 06:21:40.128703"], ["updated_at", "2020-05-30 06:21:40.128703"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mProject Create (0.4ms)[0m  [1m[32mINSERT INTO "projects" ("title", "subtitle", "body", "main_image", "thumb_image", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["title", "Portfolio title: 2"], ["subtitle", "My great service"], ["body", "Bacon ipsum dolor amet short loin flank sausage beef ribs pork chop. \n        Prosciutto porchetta \n        spare ribs pork, ham hock filet mignon \n        jowl brisket doner chicken shoulder. Spare ribs leberkas tongue,"], ["main_image", "http://placehold.it/600x400"], ["thumb_image", "http://placehold.it/350x200"], ["created_at", "2020-05-30 06:21:40.136670"], ["updated_at", "2020-05-30 06:21:40.136670"]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mProject Create (0.4ms)[0m  [1m[32mINSERT INTO "projects" ("title", "subtitle", "body", "main_image", "thumb_image", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["title", "Portfolio title: 3"], ["subtitle", "My great service"], ["body", "Bacon ipsum dolor amet short loin flank sausage beef ribs pork chop. \n        Prosciutto porchetta \n        spare ribs pork, ham hock filet mignon \n        jowl brisket doner chicken shoulder. Spare ribs leberkas tongue,"], ["main_image", "http://placehold.it/600x400"], ["thumb_image", "http://placehold.it/350x200"], ["created_at", "2020-05-30 06:21:40.147217"], ["updated_at", "2020-05-30 06:21:40.147217"]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mProject Create (0.5ms)[0m  [1m[32mINSERT INTO "projects" ("title", "subtitle", "body", "main_image", "thumb_image", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["title", "Portfolio title: 4"], ["subtitle", "My great service"], ["body", "Bacon ipsum dolor amet short loin flank sausage beef ribs pork chop. \n        Prosciutto porchetta \n        spare ribs pork, ham hock filet mignon \n        jowl brisket doner chicken shoulder. Spare ribs leberkas tongue,"], ["main_image", "http://placehold.it/600x400"], ["thumb_image", "http://placehold.it/350x200"], ["created_at", "2020-05-30 06:21:40.157238"], ["updated_at", "2020-05-30 06:21:40.157238"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mProject Create (0.5ms)[0m  [1m[32mINSERT INTO "projects" ("title", "subtitle", "body", "main_image", "thumb_image", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["title", "Portfolio title: 5"], ["subtitle", "My great service"], ["body", "Bacon ipsum dolor amet short loin flank sausage beef ribs pork chop. \n        Prosciutto porchetta \n        spare ribs pork, ham hock filet mignon \n        jowl brisket doner chicken shoulder. Spare ribs leberkas tongue,"], ["main_image", "http://placehold.it/600x400"], ["thumb_image", "http://placehold.it/350x200"], ["created_at", "2020-05-30 06:21:40.168643"], ["updated_at", "2020-05-30 06:21:40.168643"]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mProject Create (0.4ms)[0m  [1m[32mINSERT INTO "projects" ("title", "subtitle", "body", "main_image", "thumb_image", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["title", "Portfolio title: 6"], ["subtitle", "My great service"], ["body", "Bacon ipsum dolor amet short loin flank sausage beef ribs pork chop. \n        Prosciutto porchetta \n        spare ribs pork, ham hock filet mignon \n        jowl brisket doner chicken shoulder. Spare ribs leberkas tongue,"], ["main_image", "http://placehold.it/600x400"], ["thumb_image", "http://placehold.it/350x200"], ["created_at", "2020-05-30 06:21:40.180620"], ["updated_at", "2020-05-30 06:21:40.180620"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mProject Create (0.3ms)[0m  [1m[32mINSERT INTO "projects" ("title", "subtitle", "body", "main_image", "thumb_image", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["title", "Portfolio title: 7"], ["subtitle", "My great service"], ["body", "Bacon ipsum dolor amet short loin flank sausage beef ribs pork chop. \n        Prosciutto porchetta \n        spare ribs pork, ham hock filet mignon \n        jowl brisket doner chicken shoulder. Spare ribs leberkas tongue,"], ["main_image", "http://placehold.it/600x400"], ["thumb_image", "http://placehold.it/350x200"], ["created_at", "2020-05-30 06:21:40.188959"], ["updated_at", "2020-05-30 06:21:40.188959"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mProject Create (0.4ms)[0m  [1m[32mINSERT INTO "projects" ("title", "subtitle", "body", "main_image", "thumb_image", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["title", "Portfolio title: 8"], ["subtitle", "My great service"], ["body", "Bacon ipsum dolor amet short loin flank sausage beef ribs pork chop. \n        Prosciutto porchetta \n        spare ribs pork, ham hock filet mignon \n        jowl brisket doner chicken shoulder. Spare ribs leberkas tongue,"], ["main_image", "http://placehold.it/600x400"], ["thumb_image", "http://placehold.it/350x200"], ["created_at", "2020-05-30 06:21:40.198154"], ["updated_at", "2020-05-30 06:21:40.198154"]]
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+Started GET "/projects" for ::1 at 2020-05-29 23:21:54 -0700
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by ProjectsController#index as HTML
+  Rendering projects/index.html.erb within layouts/application
+  [1m[36mProject Load (0.9ms)[0m  [1m[34mSELECT "projects".* FROM "projects"[0m
+  ↳ app/views/projects/index.html.erb:3
+  Rendered projects/index.html.erb within layouts/application (Duration: 24.7ms | Allocations: 6005)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 71ms (Views: 51.1ms | ActiveRecord: 9.6ms | Allocations: 14320)
+
+
+Started GET "/projects/1/edit" for ::1 at 2020-05-29 23:22:06 -0700
+Processing by ProjectsController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mProject Load (0.4ms)[0m  [1m[34mSELECT "projects".* FROM "projects" WHERE "projects"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/projects_controller.rb:25:in `edit'
+  Rendering projects/edit.html.erb within layouts/application
+  Rendered projects/edit.html.erb within layouts/application (Duration: 10.2ms | Allocations: 2586)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 24ms (Views: 18.1ms | ActiveRecord: 0.6ms | Allocations: 7646)
+
+
+Started PATCH "/projects/1" for ::1 at 2020-05-29 23:22:15 -0700
+Processing by ProjectsController#update as HTML
+  Parameters: {"authenticity_token"=>"eJMqmbm1oOsOTLjW+k7z3PT3C+YrtmzcAUAnVQbeuVMACiLXsUTBpWn2ZNJtF5ujOXDqcvnhk1n6RokjsZthMA==", "project"=>{"title"=>"Portfolio title: 0", "subtitle"=>"My great service is great bull shit"}, "commit"=>"Update Project", "id"=>"1"}
+  [1m[36mProject Load (0.5ms)[0m  [1m[34mSELECT "projects".* FROM "projects" WHERE "projects"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/projects_controller.rb:31:in `block in update'
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/projects_controller.rb:32:in `block in update'
+  [1m[36mProject Update (0.8ms)[0m  [1m[33mUPDATE "projects" SET "subtitle" = $1, "updated_at" = $2 WHERE "projects"."id" = $3[0m  [["subtitle", "My great service is great bull shit"], ["updated_at", "2020-05-30 06:22:15.803070"], ["id", 1]]
+  ↳ app/controllers/projects_controller.rb:32:in `block in update'
+  [1m[35m (1.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/projects_controller.rb:32:in `block in update'
+Redirected to http://localhost:3000/projects
+Completed 302 Found in 20ms (ActiveRecord: 2.5ms | Allocations: 3546)
+
+
+Started GET "/projects" for ::1 at 2020-05-29 23:22:15 -0700
+Processing by ProjectsController#index as HTML
+  Rendering projects/index.html.erb within layouts/application
+  [1m[36mProject Load (0.7ms)[0m  [1m[34mSELECT "projects".* FROM "projects"[0m
+  ↳ app/views/projects/index.html.erb:3
+  Rendered projects/index.html.erb within layouts/application (Duration: 3.5ms | Allocations: 996)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 14ms (Views: 12.0ms | ActiveRecord: 0.7ms | Allocations: 4936)
+
+
+Started GET "/projects" for ::1 at 2020-05-29 23:36:04 -0700
+Processing by ProjectsController#index as HTML
+  Rendering projects/index.html.erb within layouts/application
+  [1m[36mProject Load (0.7ms)[0m  [1m[34mSELECT "projects".* FROM "projects" LIMIT $1[0m  [["LIMIT", 11]]
+  [1m[36mCACHE Project Load (0.0ms)[0m  [1m[34mSELECT "projects".* FROM "projects" LIMIT $1[0m  [["LIMIT", 11]]
+  [1m[36mCACHE Project Load (0.0ms)[0m  [1m[34mSELECT "projects".* FROM "projects" LIMIT $1[0m  [["LIMIT", 11]]
+  [1m[36mCACHE Project Load (0.0ms)[0m  [1m[34mSELECT "projects".* FROM "projects" LIMIT $1[0m  [["LIMIT", 11]]
+  [1m[36mCACHE Project Load (0.0ms)[0m  [1m[34mSELECT "projects".* FROM "projects" LIMIT $1[0m  [["LIMIT", 11]]
+  [1m[36mCACHE Project Load (0.0ms)[0m  [1m[34mSELECT "projects".* FROM "projects" LIMIT $1[0m  [["LIMIT", 11]]
+  [1m[36mCACHE Project Load (0.0ms)[0m  [1m[34mSELECT "projects".* FROM "projects" LIMIT $1[0m  [["LIMIT", 11]]
+  [1m[36mCACHE Project Load (0.0ms)[0m  [1m[34mSELECT "projects".* FROM "projects" LIMIT $1[0m  [["LIMIT", 11]]
+  Rendered projects/index.html.erb within layouts/application (Duration: 338.5ms | Allocations: 143776)
+Completed 500 Internal Server Error in 344ms (ActiveRecord: 1.2ms | Allocations: 144980)
+
+
+  
+ActionView::Template::Error (undefined local variable or method `new_portfolio_path' for #<#<Class:0x00007f8b7bbc2d58>:0x00007f8b7bba3f98>
+Did you mean?  new_project_path):
+    1: <h1>Portfolio Items</h1>
+    2: 
+    3: <% link_to "Create New Item", new_portfolio_path %>
+    4: 
+    5: <% @portfolio_items.each do |portfolio_item| %>
+    6:     <p> <%= portfolio_item.title %> </p>
+  
+app/views/projects/index.html.erb:3
+Started GET "/projects" for ::1 at 2020-05-29 23:36:34 -0700
+Processing by ProjectsController#index as HTML
+  Rendering projects/index.html.erb within layouts/application
+  [1m[36mProject Load (0.4ms)[0m  [1m[34mSELECT "projects".* FROM "projects" LIMIT $1[0m  [["LIMIT", 11]]
+  [1m[36mCACHE Project Load (0.0ms)[0m  [1m[34mSELECT "projects".* FROM "projects" LIMIT $1[0m  [["LIMIT", 11]]
+  [1m[36mCACHE Project Load (0.0ms)[0m  [1m[34mSELECT "projects".* FROM "projects" LIMIT $1[0m  [["LIMIT", 11]]
+  [1m[36mCACHE Project Load (0.0ms)[0m  [1m[34mSELECT "projects".* FROM "projects" LIMIT $1[0m  [["LIMIT", 11]]
+  [1m[36mCACHE Project Load (0.0ms)[0m  [1m[34mSELECT "projects".* FROM "projects" LIMIT $1[0m  [["LIMIT", 11]]
+  [1m[36mCACHE Project Load (0.0ms)[0m  [1m[34mSELECT "projects".* FROM "projects" LIMIT $1[0m  [["LIMIT", 11]]
+  [1m[36mCACHE Project Load (0.0ms)[0m  [1m[34mSELECT "projects".* FROM "projects" LIMIT $1[0m  [["LIMIT", 11]]
+  [1m[36mCACHE Project Load (0.0ms)[0m  [1m[34mSELECT "projects".* FROM "projects" LIMIT $1[0m  [["LIMIT", 11]]
+  Rendered projects/index.html.erb within layouts/application (Duration: 283.5ms | Allocations: 141364)
+Completed 500 Internal Server Error in 287ms (ActiveRecord: 0.6ms | Allocations: 142582)
+
+
+  
+ActionView::Template::Error (undefined local variable or method `new_portfolio_path' for #<#<Class:0x00007f8b79758530>:0x00007f8b79752a68>
+Did you mean?  new_project_path):
+    1: <h1>Portfolio Items</h1>
+    2: 
+    3: <%= link_to "Create New Item", new_portfolio_path %>
+    4: 
+    5: <% @portfolio_items.each do |portfolio_item| %>
+    6:     <p> <%= portfolio_item.title %> </p>
+  
+app/views/projects/index.html.erb:3
+Started GET "/projects" for ::1 at 2020-05-29 23:36:54 -0700
+Processing by ProjectsController#index as HTML
+  Rendering projects/index.html.erb within layouts/application
+  [1m[36mProject Load (0.5ms)[0m  [1m[34mSELECT "projects".* FROM "projects"[0m
+  ↳ app/views/projects/index.html.erb:5
+  Rendered projects/index.html.erb within layouts/application (Duration: 3.0ms | Allocations: 1208)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 22ms (Views: 20.0ms | ActiveRecord: 0.5ms | Allocations: 6085)
+
+
+Started GET "/projects/new" for ::1 at 2020-05-29 23:36:58 -0700
+Processing by ProjectsController#new as HTML
+  Rendering projects/new.html.erb within layouts/application
+  Rendered projects/new.html.erb within layouts/application (Duration: 3.3ms | Allocations: 934)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 13ms (Views: 11.8ms | ActiveRecord: 0.0ms | Allocations: 5008)
+
+
+Started GET "/projects/new" for ::1 at 2020-05-29 23:43:21 -0700
+Processing by ProjectsController#new as HTML
+  Rendering projects/new.html.erb within layouts/application
+  Rendered projects/new.html.erb within layouts/application (Duration: 2.6ms | Allocations: 887)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 14ms (Views: 12.4ms | ActiveRecord: 0.0ms | Allocations: 5728)
+
+
+Started GET "/projects" for ::1 at 2020-05-29 23:43:24 -0700
+Processing by ProjectsController#index as HTML
+  Rendering projects/index.html.erb within layouts/application
+  Rendered projects/index.html.erb within layouts/application (Duration: 1.7ms | Allocations: 1088)
+Completed 500 Internal Server Error in 4ms (ActiveRecord: 0.0ms | Allocations: 1674)
+
+
+  
+ActionView::SyntaxErrorInTemplate (Encountered a syntax error while rendering template: check <h1>Portfolio Items</h1>
+
+<%= link_to "Create New Item", new_project_path %>
+
+<% @portfolio_items.each do |portfolio_item| %>
+    <p> <%= portfolio_item.title %> </p>
+    <p> <%= portfolio_item.subtitle %> </p>
+    <p> <%= portfolio_item.body %> </p>
+    <p> <%= image_tag portfolio_item.thumb_image if !portfolio_item.thumb_image.nil? %> </p>
+    <%= link_to "Edit", edit_portfolio_path(portfolio_item.id)
+
+ 
+<% end %>
+):
+1:    <h1>Portfolio Items</h1>
+2:    
+3:    <%= link_to "Create New Item", new_project_path %>
+4:    
+5:    <% @portfolio_items.each do |portfolio_item| %>
+6:        <p> <%= portfolio_item.title %> </p>
+7:        <p> <%= portfolio_item.subtitle %> </p>
+8:        <p> <%= portfolio_item.body %> </p>
+9:        <p> <%= image_tag portfolio_item.thumb_image if !portfolio_item.thumb_image.nil? %> </p>
+10:        <%= link_to "Edit", edit_portfolio_path(portfolio_item.id)
+11:    
+12:     
+13:    <% end %>
+  
+app/views/projects/index.html.erb:13: syntax error, unexpected '<', expecting ')'
+app/views/projects/index.html.erb:15: syntax error, unexpected end-of-input, expecting `end'
+app/views/projects/index.html.erb:13: syntax error, unexpected '<', expecting ')'
+app/views/projects/index.html.erb:15: syntax error, unexpected end-of-input, expecting `end'
+app/views/projects/index.html.erb:13: syntax error, unexpected '<', expecting ')'
+app/views/projects/index.html.erb:15: syntax error, unexpected end-of-input, expecting `end'
+app/views/projects/index.html.erb:13: syntax error, unexpected '<', expecting ')'
+app/views/projects/index.html.erb:15: syntax error, unexpected end-of-input, expecting `end'
+app/views/projects/index.html.erb:13: syntax error, unexpected '<', expecting ')'
+app/views/projects/index.html.erb:15: syntax error, unexpected end-of-input, expecting `end'
+app/views/projects/index.html.erb:13: syntax error, unexpected '<', expecting ')'
+app/views/projects/index.html.erb:15: syntax error, unexpected end-of-input, expecting `end'
+Started GET "/projects" for ::1 at 2020-05-29 23:43:40 -0700
+Processing by ProjectsController#index as HTML
+  Rendering projects/index.html.erb within layouts/application
+  [1m[36mProject Load (1.2ms)[0m  [1m[34mSELECT "projects".* FROM "projects"[0m
+  ↳ app/views/projects/index.html.erb:5
+  Rendered projects/index.html.erb within layouts/application (Duration: 136.9ms | Allocations: 66335)
+Completed 500 Internal Server Error in 141ms (ActiveRecord: 1.2ms | Allocations: 67519)
+
+
+  
+ActionView::Template::Error (undefined method `edit_portfolio_path' for #<#<Class:0x00007f8b79f6d270>:0x00007f8b7977f7e8>
+Did you mean?  edit_project_path):
+     7:     <p> <%= portfolio_item.subtitle %> </p>
+     8:     <p> <%= portfolio_item.body %> </p>
+     9:     <p> <%= image_tag portfolio_item.thumb_image if !portfolio_item.thumb_image.nil? %> </p>
+    10:     <%= link_to "Edit", edit_portfolio_path(portfolio_item.id) %>
+    11: 
+    12:  
+    13: <% end %>
+  
+app/views/projects/index.html.erb:10
+app/views/projects/index.html.erb:5
+Started GET "/projects" for ::1 at 2020-05-29 23:44:06 -0700
+Processing by ProjectsController#index as HTML
+  Rendering projects/index.html.erb within layouts/application
+  [1m[36mProject Load (0.5ms)[0m  [1m[34mSELECT "projects".* FROM "projects"[0m
+  ↳ app/views/projects/index.html.erb:5
+  Rendered projects/index.html.erb within layouts/application (Duration: 255.2ms | Allocations: 127675)
+Completed 500 Internal Server Error in 259ms (ActiveRecord: 0.5ms | Allocations: 128858)
+
+
+  
+ActionView::Template::Error (undefined local variable or method `project_item' for #<#<Class:0x00007f8b79ef9230>:0x00007f8b79ef3920>
+Did you mean?  project_path):
+     7:     <p> <%= portfolio_item.subtitle %> </p>
+     8:     <p> <%= portfolio_item.body %> </p>
+     9:     <p> <%= image_tag portfolio_item.thumb_image if !portfolio_item.thumb_image.nil? %> </p>
+    10:     <%= link_to "Edit", edit_project_path(project_item.id) %>
+    11: 
+    12:  
+    13: <% end %>
+  
+app/views/projects/index.html.erb:10
+app/views/projects/index.html.erb:5
+Started GET "/projects" for ::1 at 2020-05-29 23:44:31 -0700
+Processing by ProjectsController#index as HTML
+  Rendering projects/index.html.erb within layouts/application
+  [1m[36mProject Load (0.5ms)[0m  [1m[34mSELECT "projects".* FROM "projects"[0m
+  ↳ app/views/projects/index.html.erb:5
+  Rendered projects/index.html.erb within layouts/application (Duration: 3.9ms | Allocations: 1448)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 14ms (Views: 12.4ms | ActiveRecord: 0.5ms | Allocations: 6291)
+
+
+Started GET "/projects/2/edit" for ::1 at 2020-05-29 23:44:33 -0700
+Processing by ProjectsController#edit as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mProject Load (0.9ms)[0m  [1m[34mSELECT "projects".* FROM "projects" WHERE "projects"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/projects_controller.rb:25:in `edit'
+  Rendering projects/edit.html.erb within layouts/application
+  Rendered projects/edit.html.erb within layouts/application (Duration: 3.6ms | Allocations: 931)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 18ms (Views: 11.5ms | ActiveRecord: 1.2ms | Allocations: 5576)
+
+
+Started PATCH "/projects/2" for ::1 at 2020-05-29 23:44:39 -0700
+Processing by ProjectsController#update as HTML
+  Parameters: {"authenticity_token"=>"qzXxgreKZ6EzDiJrb584QwoMgwUN1U+nQy09Q1CEXMiZNYCHiBztD+iELRIjfgeZwTZEr6GDwuYS52acydaNJQ==", "project"=>{"title"=>"Portfolio title: 1", "subtitle"=>"My great service 951"}, "commit"=>"Update Project", "id"=>"2"}
+  [1m[36mProject Load (0.6ms)[0m  [1m[34mSELECT "projects".* FROM "projects" WHERE "projects"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/projects_controller.rb:31:in `block in update'
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/projects_controller.rb:32:in `block in update'
+  [1m[36mProject Update (1.2ms)[0m  [1m[33mUPDATE "projects" SET "subtitle" = $1, "updated_at" = $2 WHERE "projects"."id" = $3[0m  [["subtitle", "My great service 951"], ["updated_at", "2020-05-30 06:44:39.457968"], ["id", 2]]
+  ↳ app/controllers/projects_controller.rb:32:in `block in update'
+  [1m[35m (1.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/projects_controller.rb:32:in `block in update'
+Redirected to http://localhost:3000/projects
+Completed 302 Found in 12ms (ActiveRecord: 3.9ms | Allocations: 3384)
+
+
+Started GET "/projects" for ::1 at 2020-05-29 23:44:39 -0700
+Processing by ProjectsController#index as HTML
+  Rendering projects/index.html.erb within layouts/application
+  [1m[36mProject Load (0.5ms)[0m  [1m[34mSELECT "projects".* FROM "projects"[0m
+  ↳ app/views/projects/index.html.erb:5
+  Rendered projects/index.html.erb within layouts/application (Duration: 3.9ms | Allocations: 1253)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 12ms (Views: 11.0ms | ActiveRecord: 0.5ms | Allocations: 5181)
+
+
+Started GET "/projects/3/edit" for ::1 at 2020-05-29 23:44:55 -0700
+Processing by ProjectsController#edit as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mProject Load (1.8ms)[0m  [1m[34mSELECT "projects".* FROM "projects" WHERE "projects"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/projects_controller.rb:25:in `edit'
+  Rendering projects/edit.html.erb within layouts/application
+  Rendered projects/edit.html.erb within layouts/application (Duration: 2.2ms | Allocations: 723)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 15ms (Views: 9.7ms | ActiveRecord: 1.8ms | Allocations: 5200)
+
+
+Started PATCH "/projects/3" for ::1 at 2020-05-29 23:45:01 -0700
+Processing by ProjectsController#update as HTML
+  Parameters: {"authenticity_token"=>"M1oDyXMp1a2AEh2ZPWWVtZ5JTD6Ot0qG9TnGJEgaRVoGXtjI/oYNp8HUJTUB6ZCOj0Vaks+1Atys6fZe69UbAg==", "project"=>{"title"=>"Portfolio title: 2", "subtitle"=>"My great service is bull shit"}, "commit"=>"Update Project", "id"=>"3"}
+  [1m[36mProject Load (0.6ms)[0m  [1m[34mSELECT "projects".* FROM "projects" WHERE "projects"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/projects_controller.rb:31:in `block in update'
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/projects_controller.rb:32:in `block in update'
+  [1m[36mProject Update (0.8ms)[0m  [1m[33mUPDATE "projects" SET "subtitle" = $1, "updated_at" = $2 WHERE "projects"."id" = $3[0m  [["subtitle", "My great service is bull shit"], ["updated_at", "2020-05-30 06:45:01.495889"], ["id", 3]]
+  ↳ app/controllers/projects_controller.rb:32:in `block in update'
+  [1m[35m (1.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/projects_controller.rb:32:in `block in update'
+Redirected to http://localhost:3000/projects
+Completed 302 Found in 11ms (ActiveRecord: 3.2ms | Allocations: 3372)
+
+
+Started GET "/projects" for ::1 at 2020-05-29 23:45:01 -0700
+Processing by ProjectsController#index as HTML
+  Rendering projects/index.html.erb within layouts/application
+  [1m[36mProject Load (0.4ms)[0m  [1m[34mSELECT "projects".* FROM "projects"[0m
+  ↳ app/views/projects/index.html.erb:5
+  Rendered projects/index.html.erb within layouts/application (Duration: 3.0ms | Allocations: 1251)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 11ms (Views: 9.8ms | ActiveRecord: 0.4ms | Allocations: 5172)
+
+
