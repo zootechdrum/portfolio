@@ -4699,3 +4699,70 @@ Processing by PagesController#home as HTML
 Completed 200 OK in 58ms (Views: 51.3ms | ActiveRecord: 0.0ms | Allocations: 4538)
 
 
+Started GET "/" for ::1 at 2020-05-31 12:25:43 -0700
+  [1m[35m (2.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PagesController#home as HTML
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 1.6ms | Allocations: 188)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 49ms (Views: 38.9ms | ActiveRecord: 0.0ms | Allocations: 8208)
+
+
+Started GET "/blogs" for ::1 at 2020-05-31 12:25:48 -0700
+Processing by BlogsController#index as HTML
+Completed 500 Internal Server Error in 41ms (ActiveRecord: 0.0ms | Allocations: 6449)
+
+
+  
+NoMethodError (undefined method `validate_presence_of' for #<Class:0x00007fe08e3ddaa8>
+Did you mean?  validates_presence_of
+               validates_absence_of):
+  
+app/models/blog.rb:6:in `<class:Blog>'
+app/models/blog.rb:1:in `<main>'
+app/controllers/blogs_controller.rb:7:in `index'
+Started GET "/blogs" for ::1 at 2020-05-31 12:26:17 -0700
+Processing by BlogsController#index as HTML
+  Rendering blogs/index.html.erb within layouts/application
+  [1m[36mBlog Load (5.1ms)[0m  [1m[34mSELECT "blogs".* FROM "blogs"[0m
+  ↳ app/views/blogs/index.html.erb:15
+  Rendered blogs/index.html.erb within layouts/application (Duration: 29.8ms | Allocations: 6595)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 51ms (Views: 29.0ms | ActiveRecord: 15.9ms | Allocations: 12051)
+
+
+Started GET "/blogs/my-blog-post-3" for ::1 at 2020-05-31 12:26:19 -0700
+Processing by BlogsController#show as HTML
+  Parameters: {"id"=>"my-blog-post-3"}
+  [1m[36mBlog Load (2.6ms)[0m  [1m[34mSELECT "blogs".* FROM "blogs" WHERE "blogs"."slug" = $1 LIMIT $2[0m  [["slug", "my-blog-post-3"], ["LIMIT", 1]]
+  ↳ app/controllers/blogs_controller.rb:78:in `set_blog'
+  Rendering blogs/show.html.erb within layouts/application
+  Rendered blogs/show.html.erb within layouts/application (Duration: 1.2ms | Allocations: 253)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 21ms (Views: 10.0ms | ActiveRecord: 2.8ms | Allocations: 5454)
+
+
+Started GET "/blogs/my-blog-post-3/edit" for ::1 at 2020-05-31 12:26:21 -0700
+Processing by BlogsController#edit as HTML
+  Parameters: {"id"=>"my-blog-post-3"}
+  [1m[36mBlog Load (0.5ms)[0m  [1m[34mSELECT "blogs".* FROM "blogs" WHERE "blogs"."slug" = $1 LIMIT $2[0m  [["slug", "my-blog-post-3"], ["LIMIT", 1]]
+  ↳ app/controllers/blogs_controller.rb:78:in `set_blog'
+  Rendering blogs/edit.html.erb within layouts/application
+  Rendered blogs/_form.html.erb (Duration: 11.4ms | Allocations: 2635)
+  Rendered blogs/edit.html.erb within layouts/application (Duration: 13.2ms | Allocations: 3009)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 25ms (Views: 21.3ms | ActiveRecord: 0.5ms | Allocations: 7818)
+
+
+Started PATCH "/blogs/my-blog-post-3" for ::1 at 2020-05-31 12:26:26 -0700
+Processing by BlogsController#update as HTML
+  Parameters: {"authenticity_token"=>"SoPZqAzzgnZa9GN0RlXVy/CkKo30CFOFNQobmmLfaQuOH/nc0joR0piPRKFiVvvwO1zstPrCggGz8i/sGvO7Dg==", "blog"=>{"title"=>"", "body"=>"Corned beef rump swine meatball pork chop short ribs t-bone sirloin chicken bacon pork loin leberkas frankfurter shank. \r\n        Tongue beef ribs cupim flank swine pancetta. Boudin pork pork belly pork loin filet mignon cow, tongue chislic tenderloin meatloaf pig. Chicken rump spare ribs ham hock kielbasa shoulder chuck kevin frankfurter swine ground round shankle strip steak. \r\n        Buffalo ball tip pork chop, \r\n        venison prosciutto salami t-bone hamburger cupim tenderloin tail."}, "commit"=>"Update Blog", "id"=>"my-blog-post-3"}
+  [1m[36mBlog Load (0.5ms)[0m  [1m[34mSELECT "blogs".* FROM "blogs" WHERE "blogs"."slug" = $1 LIMIT $2[0m  [["slug", "my-blog-post-3"], ["LIMIT", 1]]
+  ↳ app/controllers/blogs_controller.rb:78:in `set_blog'
+  Rendering blogs/edit.html.erb within layouts/application
+  Rendered blogs/_form.html.erb (Duration: 2.5ms | Allocations: 892)
+  Rendered blogs/edit.html.erb within layouts/application (Duration: 3.2ms | Allocations: 1004)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 18ms (Views: 11.9ms | ActiveRecord: 0.5ms | Allocations: 7061)
+
+
