@@ -3573,3 +3573,46 @@ Processing by ProjectsController#show as HTML
 Completed 200 OK in 13ms (Views: 9.1ms | ActiveRecord: 0.8ms | Allocations: 4520)
 
 
+Started GET "/" for ::1 at 2020-05-30 19:27:21 -0700
+  [1m[35m (2.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /Users/mymac/.rvm/rubies/ruby-2.7.0/lib/ruby/gems/2.7.0/gems/railties-6.0.3.1/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /Users/mymac/.rvm/rubies/ruby-2.7.0/lib/ruby/gems/2.7.0/gems/railties-6.0.3.1/lib/rails/templates/rails/welcome/index.html.erb (Duration: 12.2ms | Allocations: 295)
+Completed 200 OK in 25ms (Views: 15.8ms | ActiveRecord: 0.0ms | Allocations: 1771)
+
+
+Started GET "/projects" for ::1 at 2020-05-30 19:27:28 -0700
+Processing by ProjectsController#index as HTML
+  Rendering projects/index.html.erb within layouts/application
+  [1m[36mProject Load (4.4ms)[0m  [1m[34mSELECT "projects".* FROM "projects"[0m
+  ↳ app/views/projects/index.html.erb:5
+  Rendered projects/index.html.erb within layouts/application (Duration: 40.3ms | Allocations: 7639)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 84ms (Views: 59.6ms | ActiveRecord: 20.7ms | Allocations: 15597)
+
+
+Started DELETE "/projects/4" for ::1 at 2020-05-30 19:27:42 -0700
+Processing by ProjectsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"xOSQHu7bjf9gkrgH0obPJJXPXiRo3UAxZh0EkIkYf4K8fZhQ5irssQcoZANF36dbWEi/sLqKv7SdG6rmPl2n4Q==", "id"=>"4"}
+  [1m[36mProject Load (0.8ms)[0m  [1m[34mSELECT "projects".* FROM "projects" WHERE "projects"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/projects_controller.rb:45:in `destroy'
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/projects_controller.rb:46:in `destroy'
+  [1m[36mProject Destroy (6.0ms)[0m  [1m[31mDELETE FROM "projects" WHERE "projects"."id" = $1[0m  [["id", 4]]
+  ↳ app/controllers/projects_controller.rb:46:in `destroy'
+  [1m[35m (2.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/projects_controller.rb:46:in `destroy'
+Redirected to http://localhost:3000/projects
+Completed 302 Found in 21ms (ActiveRecord: 9.5ms | Allocations: 3308)
+
+
+Started GET "/projects" for ::1 at 2020-05-30 19:27:42 -0700
+Processing by ProjectsController#index as HTML
+  Rendering projects/index.html.erb within layouts/application
+  [1m[36mProject Load (0.4ms)[0m  [1m[34mSELECT "projects".* FROM "projects"[0m
+  ↳ app/views/projects/index.html.erb:5
+  Rendered projects/index.html.erb within layouts/application (Duration: 3.7ms | Allocations: 1753)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 13ms (Views: 12.0ms | ActiveRecord: 0.4ms | Allocations: 5678)
+
+
