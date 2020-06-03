@@ -3,6 +3,10 @@ class ProjectsController < ApplicationController
         @portfolio_items = Project.all
     end
 
+    def react
+      @react_portfolio_items = Project.react
+    end
+
     def new
         @portfolio_item = Project.new
     end
