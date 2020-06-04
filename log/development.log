@@ -6124,3 +6124,266 @@ Processing by ProjectsController#react as HTML
 Completed 200 OK in 60ms (Views: 44.1ms | ActiveRecord: 10.2ms | Allocations: 13962)
 
 
+Started GET "/" for ::1 at 2020-06-04 16:14:14 -0700
+  [1m[35m (1.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PagesController#home as HTML
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 1.3ms | Allocations: 188)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 41ms (Views: 34.2ms | ActiveRecord: 0.0ms | Allocations: 8212)
+
+
+Started GET "/projects" for ::1 at 2020-06-04 16:14:19 -0700
+Processing by ProjectsController#index as HTML
+Completed 500 Internal Server Error in 3ms (ActiveRecord: 0.0ms | Allocations: 1121)
+
+
+  
+SyntaxError (/Users/mymac/Desktop/portfolio/app/models/project.rb:13: syntax error, unexpected operator-assignment, expecting ';' or '\n'
+        self.main_image  ||=  "http://placehold.it/600x40...
+                         ^~~
+/Users/mymac/Desktop/portfolio/app/models/project.rb:17: syntax error, unexpected `end', expecting end-of-input):
+  
+app/models/project.rb:13: syntax error, unexpected operator-assignment, expecting ';' or '\n'
+app/models/project.rb:17: syntax error, unexpected `end', expecting end-of-input
+app/models/project.rb:13: syntax error, unexpected operator-assignment, expecting ';' or '\n'
+app/models/project.rb:17: syntax error, unexpected `end', expecting end-of-input
+app/models/project.rb:13: syntax error, unexpected operator-assignment, expecting ';' or '\n'
+app/models/project.rb:17: syntax error, unexpected `end', expecting end-of-input
+app/controllers/projects_controller.rb:3:in `index'
+Started GET "/projects" for ::1 at 2020-06-04 16:14:59 -0700
+Processing by ProjectsController#index as HTML
+Completed 500 Internal Server Error in 1ms (ActiveRecord: 0.0ms | Allocations: 1123)
+
+
+  
+SyntaxError (/Users/mymac/Desktop/portfolio/app/models/project.rb:19: syntax error, unexpected ':', expecting end-of-input
+main_image: "http://placehold.it/600x400...
+          ^
+):
+  
+app/models/project.rb:19: syntax error, unexpected ':', expecting end-of-input
+app/models/project.rb:19: syntax error, unexpected ':', expecting end-of-input
+app/models/project.rb:19: syntax error, unexpected ':', expecting end-of-input
+app/controllers/projects_controller.rb:3:in `index'
+Started GET "/projects" for ::1 at 2020-06-04 16:15:09 -0700
+Processing by ProjectsController#index as HTML
+Completed 500 Internal Server Error in 4ms (ActiveRecord: 0.0ms | Allocations: 2461)
+
+
+  
+NameError (uninitialized constant ProjectsController::Project):
+  
+app/controllers/projects_controller.rb:3:in `index'
+Started GET "/projects" for ::1 at 2020-06-04 16:16:40 -0700
+Processing by ProjectsController#index as HTML
+Completed 500 Internal Server Error in 1ms (ActiveRecord: 0.0ms | Allocations: 1119)
+
+
+  
+SyntaxError (/Users/mymac/Desktop/portfolio/app/models/project.rb:13: syntax error, unexpected ',', expecting `end'
+... "http://placehold.it/600x400",
+...                              ^
+/Users/mymac/Desktop/portfolio/app/models/project.rb:19: syntax error, unexpected ':', expecting end-of-input
+main_image: "http://placehold.it/600x400...
+          ^
+):
+  
+app/models/project.rb:13: syntax error, unexpected ',', expecting `end'
+app/models/project.rb:19: syntax error, unexpected ':', expecting end-of-input
+app/models/project.rb:13: syntax error, unexpected ',', expecting `end'
+app/models/project.rb:19: syntax error, unexpected ':', expecting end-of-input
+app/models/project.rb:13: syntax error, unexpected ',', expecting `end'
+app/models/project.rb:19: syntax error, unexpected ':', expecting end-of-input
+app/controllers/projects_controller.rb:3:in `index'
+Started GET "/projects" for ::1 at 2020-06-04 16:17:58 -0700
+Processing by ProjectsController#index as HTML
+Completed 500 Internal Server Error in 4ms (ActiveRecord: 0.0ms | Allocations: 2453)
+
+
+  
+NameError (uninitialized constant ProjectsController::Project):
+  
+app/controllers/projects_controller.rb:3:in `index'
+Started GET "/projects" for ::1 at 2020-06-04 16:18:03 -0700
+Processing by ProjectsController#index as HTML
+Completed 500 Internal Server Error in 4ms (ActiveRecord: 0.0ms | Allocations: 2495)
+
+
+  
+NameError (uninitialized constant ProjectsController::Project):
+  
+app/controllers/projects_controller.rb:3:in `index'
+Started GET "/projects" for ::1 at 2020-06-04 16:18:18 -0700
+  [1m[35m (1.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by ProjectsController#index as HTML
+Completed 500 Internal Server Error in 7ms (ActiveRecord: 0.0ms | Allocations: 1224)
+
+
+  
+SyntaxError (/Users/mymac/Desktop/portfolio/app/models/project.rb:19: syntax error, unexpected ':', expecting end-of-input
+main_image: "http://placehold.it/600x400...
+          ^
+):
+  
+app/models/project.rb:19: syntax error, unexpected ':', expecting end-of-input
+app/models/project.rb:19: syntax error, unexpected ':', expecting end-of-input
+app/models/project.rb:19: syntax error, unexpected ':', expecting end-of-input
+app/controllers/projects_controller.rb:3:in `index'
+Started GET "/projects" for ::1 at 2020-06-04 16:19:05 -0700
+Processing by ProjectsController#index as HTML
+  Rendering projects/index.html.erb within layouts/application
+  Rendered projects/index.html.erb within layouts/application (Duration: 2.5ms | Allocations: 1621)
+Completed 500 Internal Server Error in 10ms (ActiveRecord: 0.0ms | Allocations: 3384)
+
+
+  
+ActionView::Template::Error (undefined method `each' for nil:NilClass):
+    2: 
+    3: <%= link_to "Create New Item", new_project_path %>
+    4: 
+    5: <% @portfolio_items.each do |portfolio_item| %>
+    6:     <p> <%= link_to portfolio_item.title, project_show_path(portfolio_item) %> </p>
+    7:     <p> <%= portfolio_item.subtitle %> </p>
+    8:     <p> <%= portfolio_item.body %> </p>
+  
+app/views/projects/index.html.erb:5
+Started GET "/projects" for ::1 at 2020-06-04 16:19:17 -0700
+Processing by ProjectsController#index as HTML
+  Rendering projects/index.html.erb within layouts/application
+  [1m[36mProject Load (2.1ms)[0m  [1m[34mSELECT "projects".* FROM "projects"[0m
+  ↳ app/views/projects/index.html.erb:5
+  Rendered projects/index.html.erb within layouts/application (Duration: 26.8ms | Allocations: 6771)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 49ms (Views: 34.9ms | ActiveRecord: 12.9ms | Allocations: 13462)
+
+
+Started GET "/projects/new" for ::1 at 2020-06-04 16:19:20 -0700
+Processing by ProjectsController#new as HTML
+  Rendering projects/new.html.erb within layouts/application
+  Rendered projects/new.html.erb within layouts/application (Duration: 12.1ms | Allocations: 2535)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 22ms (Views: 20.2ms | ActiveRecord: 0.0ms | Allocations: 6617)
+
+
+Started POST "/projects" for ::1 at 2020-06-04 16:19:30 -0700
+Processing by ProjectsController#create as HTML
+  Parameters: {"authenticity_token"=>"5UotG0ebiKP/6OqnR8IwCf5jWKO1Ds5ADtHzXBGmnutaz1QfJDnndNE6slSq7/WPyAEZD+/bwGMNmSJ2/4gysg==", "project"=>{"title"=>"Why I hate you ", "subtitle"=>"The Reason I hate you"}, "commit"=>"Create Project"}
+  Rendering projects/new.html.erb within layouts/application
+  Rendered projects/new.html.erb within layouts/application (Duration: 2.2ms | Allocations: 699)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 15ms (Views: 10.6ms | ActiveRecord: 0.0ms | Allocations: 5676)
+
+
+Started GET "/projects" for ::1 at 2020-06-04 16:19:38 -0700
+Processing by ProjectsController#index as HTML
+  Rendering projects/index.html.erb within layouts/application
+  [1m[36mProject Load (0.4ms)[0m  [1m[34mSELECT "projects".* FROM "projects"[0m
+  ↳ app/views/projects/index.html.erb:5
+  Rendered projects/index.html.erb within layouts/application (Duration: 4.3ms | Allocations: 2006)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 13ms (Views: 11.4ms | ActiveRecord: 0.4ms | Allocations: 5927)
+
+
+Started GET "/projects/new" for ::1 at 2020-06-04 16:19:48 -0700
+Processing by ProjectsController#new as HTML
+  Rendering projects/new.html.erb within layouts/application
+  Rendered projects/new.html.erb within layouts/application (Duration: 2.5ms | Allocations: 680)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 12ms (Views: 10.7ms | ActiveRecord: 0.0ms | Allocations: 4596)
+
+
+Started POST "/projects" for ::1 at 2020-06-04 16:20:02 -0700
+Processing by ProjectsController#create as HTML
+  Parameters: {"authenticity_token"=>"ukd4FOExjj20jgkRjqh3mW3enHALzCX25ehbFSACQsoFwgEQgpPh6ppcUeJjhbIfW7zd3FEZK9XmoIo/zizukw==", "project"=>{"title"=>"Javascript for noob", "subtitle"=>"I like Javascript"}, "commit"=>"Create Project"}
+  Rendering projects/new.html.erb within layouts/application
+  Rendered projects/new.html.erb within layouts/application (Duration: 6.4ms | Allocations: 691)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 18ms (Views: 14.4ms | ActiveRecord: 0.0ms | Allocations: 5491)
+
+
+Started POST "/projects" for ::1 at 2020-06-04 16:20:11 -0700
+Processing by ProjectsController#create as HTML
+  Parameters: {"authenticity_token"=>"vvQKSbpXyTbEWxuHmK+TajPpLdIqiRmQ+8am2j3pdG3GbQIHsqaoeKPhx4MP9vsV/m7MRvje5hUAwAisiqysDg==", "project"=>{"title"=>"Javascript for noob", "subtitle"=>"I like Javascript"}, "commit"=>"Create Project"}
+  Rendering projects/new.html.erb within layouts/application
+  Rendered projects/new.html.erb within layouts/application (Duration: 2.5ms | Allocations: 690)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 14ms (Views: 10.7ms | ActiveRecord: 0.0ms | Allocations: 5441)
+
+
+Started GET "/projects" for ::1 at 2020-06-04 16:20:20 -0700
+Processing by ProjectsController#index as HTML
+  Rendering projects/index.html.erb within layouts/application
+  [1m[36mProject Load (0.5ms)[0m  [1m[34mSELECT "projects".* FROM "projects"[0m
+  ↳ app/views/projects/index.html.erb:5
+  Rendered projects/index.html.erb within layouts/application (Duration: 4.0ms | Allocations: 1989)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 13ms (Views: 11.3ms | ActiveRecord: 0.5ms | Allocations: 5890)
+
+
+Started GET "/project/1" for ::1 at 2020-06-04 16:21:45 -0700
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mProject Load (0.6ms)[0m  [1m[34mSELECT "projects".* FROM "projects" WHERE "projects"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/projects_controller.rb:45:in `show'
+  Rendering projects/show.html.erb within layouts/application
+  Rendered projects/show.html.erb within layouts/application (Duration: 0.9ms | Allocations: 157)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 35ms (Views: 14.4ms | ActiveRecord: 0.9ms | Allocations: 7002)
+
+
+Started GET "/projects/new" for ::1 at 2020-06-04 16:21:47 -0700
+Processing by ProjectsController#new as HTML
+  Rendering projects/new.html.erb within layouts/application
+  Rendered projects/new.html.erb within layouts/application (Duration: 2.1ms | Allocations: 686)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 11ms (Views: 9.8ms | ActiveRecord: 0.0ms | Allocations: 4606)
+
+
+Started GET "/projects/new" for ::1 at 2020-06-04 16:22:09 -0700
+Processing by ProjectsController#new as HTML
+  Rendering projects/new.html.erb within layouts/application
+  Rendered projects/new.html.erb within layouts/application (Duration: 1.6ms | Allocations: 680)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 17ms (Views: 16.3ms | ActiveRecord: 0.0ms | Allocations: 4604)
+
+
+Started GET "/projects/new" for ::1 at 2020-06-04 16:28:27 -0700
+Processing by ProjectsController#new as HTML
+  Rendering projects/new.html.erb within layouts/application
+  Rendered projects/new.html.erb within layouts/application (Duration: 2.4ms | Allocations: 1117)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 23ms (Views: 21.8ms | ActiveRecord: 0.0ms | Allocations: 5944)
+
+
+Started GET "/projects/new" for ::1 at 2020-06-04 16:28:54 -0700
+Processing by ProjectsController#new as HTML
+  Rendering projects/new.html.erb within layouts/application
+  Rendered projects/new.html.erb within layouts/application (Duration: 1.8ms | Allocations: 867)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 10ms (Views: 9.4ms | ActiveRecord: 0.0ms | Allocations: 4786)
+
+
+Started POST "/projects" for ::1 at 2020-06-04 16:29:04 -0700
+Processing by ProjectsController#create as HTML
+  Parameters: {"authenticity_token"=>"vkzDKxYc5mYjUOLh9wWJMYIgNtz+slrDoCgSJUw5m7LG1ctlHu2HKETqPuVgXOFOT6fXSCzlpUZbLrxT+3xD0Q==", "project"=>{"title"=>"Why I hate you ", "subtitle"=>"This is why I hate you ", "body"=>"JavaScript"}, "commit"=>"Create Project"}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/projects_controller.rb:20:in `block in create'
+  [1m[36mProject Create (2.2ms)[0m  [1m[32mINSERT INTO "projects" ("title", "subtitle", "body", "main_image", "thumb_image", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["title", "Why I hate you "], ["subtitle", "This is why I hate you "], ["body", "JavaScript"], ["main_image", "http://placehold.it/600x400"], ["thumb_image", "http://placehold.it/350x200"], ["created_at", "2020-06-04 23:29:04.473068"], ["updated_at", "2020-06-04 23:29:04.473068"]]
+  ↳ app/controllers/projects_controller.rb:20:in `block in create'
+  [1m[35m (1.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/projects_controller.rb:20:in `block in create'
+Redirected to http://localhost:3000/projects
+Completed 302 Found in 12ms (ActiveRecord: 4.3ms | Allocations: 2885)
+
+
+Started GET "/projects" for ::1 at 2020-06-04 16:29:04 -0700
+Processing by ProjectsController#index as HTML
+  Rendering projects/index.html.erb within layouts/application
+  [1m[36mProject Load (0.7ms)[0m  [1m[34mSELECT "projects".* FROM "projects"[0m
+  ↳ app/views/projects/index.html.erb:5
+  Rendered projects/index.html.erb within layouts/application (Duration: 7.7ms | Allocations: 2426)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 20ms (Views: 17.2ms | ActiveRecord: 0.7ms | Allocations: 6506)
+
+
