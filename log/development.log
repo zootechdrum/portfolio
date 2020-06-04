@@ -6387,3 +6387,69 @@ Processing by ProjectsController#index as HTML
 Completed 200 OK in 20ms (Views: 17.2ms | ActiveRecord: 0.7ms | Allocations: 6506)
 
 
+  [1m[35m (2.2ms)[0m  [1m[34mSELECT pg_try_advisory_lock(4373051316486144390)[0m
+  [1m[35m (1.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to AddBadgeToSkills (20200604233839)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (2.9ms)[0m  [1m[35mALTER TABLE "skills" ADD "badge" text[0m
+  [1m[36mprimary::SchemaMigration Create (1.0ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20200604233839"]]
+  [1m[35m (1.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.6ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (1.2ms)[0m  [1m[34mSELECT pg_advisory_unlock(4373051316486144390)[0m
+  [1m[35m (1.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/projects" for ::1 at 2020-06-04 16:46:38 -0700
+  [1m[35m (1.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by ProjectsController#index as HTML
+Completed 500 Internal Server Error in 11ms (ActiveRecord: 0.0ms | Allocations: 1653)
+
+
+  
+SyntaxError (/Users/mymac/Desktop/portfolio/app/controllers/concerns/placeholder.rb:6: syntax error, unexpected end-of-input, expecting `end'):
+  
+app/controllers/concerns/placeholder.rb:6: syntax error, unexpected end-of-input, expecting `end'
+app/controllers/concerns/placeholder.rb:6: syntax error, unexpected end-of-input, expecting `end'
+app/controllers/concerns/placeholder.rb:6: syntax error, unexpected end-of-input, expecting `end'
+app/models/project.rb:2:in `<class:Project>'
+app/models/project.rb:1:in `<main>'
+app/controllers/projects_controller.rb:3:in `index'
+Started GET "/projects" for ::1 at 2020-06-04 16:47:09 -0700
+Processing by ProjectsController#index as HTML
+  Rendering projects/index.html.erb within layouts/application
+  [1m[36mProject Load (0.9ms)[0m  [1m[34mSELECT "projects".* FROM "projects"[0m
+  ↳ app/views/projects/index.html.erb:5
+  Rendered projects/index.html.erb within layouts/application (Duration: 25.6ms | Allocations: 7169)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 57ms (Views: 44.1ms | ActiveRecord: 9.8ms | Allocations: 15074)
+
+
+Started GET "/projects/new" for ::1 at 2020-06-04 16:47:17 -0700
+Processing by ProjectsController#new as HTML
+  Rendering projects/new.html.erb within layouts/application
+  Rendered projects/new.html.erb within layouts/application (Duration: 10.5ms | Allocations: 2783)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 21ms (Views: 19.0ms | ActiveRecord: 0.0ms | Allocations: 6900)
+
+
+Started POST "/projects" for ::1 at 2020-06-04 16:47:25 -0700
+Processing by ProjectsController#create as HTML
+  Parameters: {"authenticity_token"=>"l+TTwl7+QAxuHGhltH+N3Tq+aApB1gsnS5ocZOzye0goYarGPVwv20DOMJZZUkhbDNwpphsDBQRI0s1OAtzXEQ==", "project"=>{"title"=>"Fuck this", "subtitle"=>"Fuck that", "body"=>"Fuck you"}, "commit"=>"Create Project"}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/projects_controller.rb:20:in `block in create'
+  [1m[36mProject Create (0.9ms)[0m  [1m[32mINSERT INTO "projects" ("title", "subtitle", "body", "main_image", "thumb_image", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["title", "Fuck this"], ["subtitle", "Fuck that"], ["body", "Fuck you"], ["main_image", "http://placehold.it/600x400"], ["thumb_image", "http://placehold.it/350x200"], ["created_at", "2020-06-04 23:47:25.540955"], ["updated_at", "2020-06-04 23:47:25.540955"]]
+  ↳ app/controllers/projects_controller.rb:20:in `block in create'
+  [1m[35m (1.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/projects_controller.rb:20:in `block in create'
+Redirected to http://localhost:3000/projects
+Completed 302 Found in 16ms (ActiveRecord: 2.4ms | Allocations: 3084)
+
+
+Started GET "/projects" for ::1 at 2020-06-04 16:47:25 -0700
+Processing by ProjectsController#index as HTML
+  Rendering projects/index.html.erb within layouts/application
+  [1m[36mProject Load (0.5ms)[0m  [1m[34mSELECT "projects".* FROM "projects"[0m
+  ↳ app/views/projects/index.html.erb:5
+  Rendered projects/index.html.erb within layouts/application (Duration: 5.1ms | Allocations: 2287)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 14ms (Views: 12.8ms | ActiveRecord: 0.5ms | Allocations: 6235)
+
+
