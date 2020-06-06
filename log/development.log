@@ -7068,3 +7068,447 @@ FOREIGN KEY ("projects_id")
   [1m[36mProject Load (0.8ms)[0m  [1m[34mSELECT "projects".* FROM "projects" ORDER BY "projects"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
   [1m[36mProject Load (0.6ms)[0m  [1m[34mSELECT "projects".* FROM "projects" ORDER BY "projects"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
   [1m[36mProject Load (0.7ms)[0m  [1m[34mSELECT "projects".* FROM "projects" ORDER BY "projects"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mProject Load (5.3ms)[0m  [1m[34mSELECT "projects".* FROM "projects" ORDER BY "projects"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[35m (1.4ms)[0m  [1m[35mCREATE DATABASE "portfolio_development" ENCODING = 'unicode'[0m
+  [1m[35m (0.7ms)[0m  [1m[35mCREATE DATABASE "portfolio_test" ENCODING = 'unicode'[0m
+  [1m[35m (3.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (13.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35mSQL (14.0ms)[0m  [1m[35mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  [1m[35m (25.6ms)[0m  [1m[35mDROP TABLE IF EXISTS "blogs" CASCADE[0m
+  [1m[35m (29.8ms)[0m  [1m[35mCREATE TABLE "blogs" ("id" bigserial primary key, "title" character varying, "body" text, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL, "slug" character varying, "status" integer DEFAULT 0, "topic_id" bigint)[0m
+  [1m[35m (2.0ms)[0m  [1m[35mCREATE UNIQUE INDEX  "index_blogs_on_slug" ON "blogs"  ("slug")[0m
+  [1m[35m (1.3ms)[0m  [1m[35mCREATE  INDEX  "index_blogs_on_topic_id" ON "blogs"  ("topic_id")[0m
+  [1m[35m (4.4ms)[0m  [1m[35mDROP TABLE IF EXISTS "friendly_id_slugs" CASCADE[0m
+  [1m[35m (6.1ms)[0m  [1m[35mCREATE TABLE "friendly_id_slugs" ("id" bigserial primary key, "slug" character varying NOT NULL, "sluggable_id" integer NOT NULL, "sluggable_type" character varying(50), "scope" character varying, "created_at" timestamp)[0m
+  [1m[35m (2.0ms)[0m  [1m[35mCREATE UNIQUE INDEX  "index_friendly_id_slugs_on_slug_and_sluggable_type_and_scope" ON "friendly_id_slugs"  ("slug", "sluggable_type", "scope")[0m
+  [1m[35m (1.6ms)[0m  [1m[35mCREATE  INDEX  "index_friendly_id_slugs_on_slug_and_sluggable_type" ON "friendly_id_slugs"  ("slug", "sluggable_type")[0m
+  [1m[35m (1.7ms)[0m  [1m[35mCREATE  INDEX  "index_friendly_id_slugs_on_sluggable_type_and_sluggable_id" ON "friendly_id_slugs"  ("sluggable_type", "sluggable_id")[0m
+  [1m[35m (2.8ms)[0m  [1m[35mDROP TABLE IF EXISTS "myportfolios" CASCADE[0m
+  [1m[35m (5.5ms)[0m  [1m[35mCREATE TABLE "myportfolios" ("id" bigserial primary key, "title" character varying, "subtitle" character varying, "body" text, "main_image" text, "thumb_image" text, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (4.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "projects" CASCADE[0m
+  [1m[35m (7.9ms)[0m  [1m[35mCREATE TABLE "projects" ("id" bigserial primary key, "title" character varying, "subtitle" character varying, "body" text, "main_image" text, "thumb_image" text, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (3.2ms)[0m  [1m[35mDROP TABLE IF EXISTS "skills" CASCADE[0m
+  [1m[35m (5.1ms)[0m  [1m[35mCREATE TABLE "skills" ("id" bigserial primary key, "title" character varying, "percent_utilized" integer, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL, "badge" text)[0m
+  [1m[35m (3.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "technologies" CASCADE[0m
+  [1m[35m (6.5ms)[0m  [1m[35mCREATE TABLE "technologies" ("id" bigserial primary key, "name" character varying, "project_id" bigint NOT NULL, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (1.4ms)[0m  [1m[35mCREATE  INDEX  "index_technologies_on_projects_id" ON "technologies"  ("project_id")[0m
+  [1m[35m (3.3ms)[0m  [1m[35mDROP TABLE IF EXISTS "topics" CASCADE[0m
+  [1m[35m (6.8ms)[0m  [1m[35mCREATE TABLE "topics" ("id" bigserial primary key, "title" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (9.3ms)[0m  [1m[35mALTER TABLE "blogs" ADD CONSTRAINT "fk_rails_7f5637ea0d"
+FOREIGN KEY ("topic_id")
+  REFERENCES "topics" ("id")
+[0m
+  [1m[35m (0.8ms)[0m  [1m[35mALTER TABLE "technologies" ADD CONSTRAINT "fk_rails_de8559b586"
+FOREIGN KEY ("projects_id")
+  REFERENCES "projects" ("id")
+[0m
+  [1m[35m (0.7ms)[0m  [1m[35mCREATE DATABASE "portfolio_development" ENCODING = 'unicode'[0m
+  [1m[35m (0.9ms)[0m  [1m[35mCREATE DATABASE "portfolio_test" ENCODING = 'unicode'[0m
+  [1m[35m (1.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35mSQL (0.4ms)[0m  [1m[35mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  [1m[35m (6.4ms)[0m  [1m[35mDROP TABLE IF EXISTS "blogs" CASCADE[0m
+  [1m[35m (7.3ms)[0m  [1m[35mCREATE TABLE "blogs" ("id" bigserial primary key, "title" character varying, "body" text, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL, "slug" character varying, "status" integer DEFAULT 0, "topic_id" bigint)[0m
+  [1m[35m (1.7ms)[0m  [1m[35mCREATE UNIQUE INDEX  "index_blogs_on_slug" ON "blogs"  ("slug")[0m
+  [1m[35m (1.2ms)[0m  [1m[35mCREATE  INDEX  "index_blogs_on_topic_id" ON "blogs"  ("topic_id")[0m
+  [1m[35m (4.0ms)[0m  [1m[35mDROP TABLE IF EXISTS "friendly_id_slugs" CASCADE[0m
+  [1m[35m (4.8ms)[0m  [1m[35mCREATE TABLE "friendly_id_slugs" ("id" bigserial primary key, "slug" character varying NOT NULL, "sluggable_id" integer NOT NULL, "sluggable_type" character varying(50), "scope" character varying, "created_at" timestamp)[0m
+  [1m[35m (1.9ms)[0m  [1m[35mCREATE UNIQUE INDEX  "index_friendly_id_slugs_on_slug_and_sluggable_type_and_scope" ON "friendly_id_slugs"  ("slug", "sluggable_type", "scope")[0m
+  [1m[35m (1.4ms)[0m  [1m[35mCREATE  INDEX  "index_friendly_id_slugs_on_slug_and_sluggable_type" ON "friendly_id_slugs"  ("slug", "sluggable_type")[0m
+  [1m[35m (1.4ms)[0m  [1m[35mCREATE  INDEX  "index_friendly_id_slugs_on_sluggable_type_and_sluggable_id" ON "friendly_id_slugs"  ("sluggable_type", "sluggable_id")[0m
+  [1m[35m (2.6ms)[0m  [1m[35mDROP TABLE IF EXISTS "myportfolios" CASCADE[0m
+  [1m[35m (7.0ms)[0m  [1m[35mCREATE TABLE "myportfolios" ("id" bigserial primary key, "title" character varying, "subtitle" character varying, "body" text, "main_image" text, "thumb_image" text, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (3.2ms)[0m  [1m[35mDROP TABLE IF EXISTS "projects" CASCADE[0m
+  [1m[35m (4.8ms)[0m  [1m[35mCREATE TABLE "projects" ("id" bigserial primary key, "title" character varying, "subtitle" character varying, "body" text, "main_image" text, "thumb_image" text, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (2.8ms)[0m  [1m[35mDROP TABLE IF EXISTS "skills" CASCADE[0m
+  [1m[35m (5.0ms)[0m  [1m[35mCREATE TABLE "skills" ("id" bigserial primary key, "title" character varying, "percent_utilized" integer, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL, "badge" text)[0m
+  [1m[35m (3.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "technologies" CASCADE[0m
+  [1m[35m (4.7ms)[0m  [1m[35mCREATE TABLE "technologies" ("id" bigserial primary key, "name" character varying, "project_id" bigint NOT NULL, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (1.3ms)[0m  [1m[35mCREATE  INDEX  "index_technologies_on_projects_id" ON "technologies"  ("project_id")[0m
+  [1m[35m (2.6ms)[0m  [1m[35mDROP TABLE IF EXISTS "topics" CASCADE[0m
+  [1m[35m (5.7ms)[0m  [1m[35mCREATE TABLE "topics" ("id" bigserial primary key, "title" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (2.8ms)[0m  [1m[35mALTER TABLE "blogs" ADD CONSTRAINT "fk_rails_7f5637ea0d"
+FOREIGN KEY ("topic_id")
+  REFERENCES "topics" ("id")
+[0m
+  [1m[35m (2.1ms)[0m  [1m[35mALTER TABLE "technologies" ADD CONSTRAINT "fk_rails_f54b0d0a8c"
+FOREIGN KEY ("project_id")
+  REFERENCES "projects" ("id")
+[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.7ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "schema_sha1"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Update (1.6ms)[0m  [1m[33mUPDATE "ar_internal_metadata" SET "value" = $1, "updated_at" = $2 WHERE "ar_internal_metadata"."key" = $3[0m  [["value", "f03fb67c836bb2159675fb488a1e5e1f676c992d"], ["updated_at", "2020-06-06 00:39:03.945727"], ["key", "schema_sha1"]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35mSQL (1.9ms)[0m  [1m[35mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  [1m[35m (28.3ms)[0m  [1m[35mDROP TABLE IF EXISTS "blogs" CASCADE[0m
+  [1m[35m (28.5ms)[0m  [1m[35mCREATE TABLE "blogs" ("id" bigserial primary key, "title" character varying, "body" text, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL, "slug" character varying, "status" integer DEFAULT 0, "topic_id" bigint)[0m
+  [1m[35m (2.2ms)[0m  [1m[35mCREATE UNIQUE INDEX  "index_blogs_on_slug" ON "blogs"  ("slug")[0m
+  [1m[35m (1.5ms)[0m  [1m[35mCREATE  INDEX  "index_blogs_on_topic_id" ON "blogs"  ("topic_id")[0m
+  [1m[35m (4.5ms)[0m  [1m[35mDROP TABLE IF EXISTS "friendly_id_slugs" CASCADE[0m
+  [1m[35m (10.8ms)[0m  [1m[35mCREATE TABLE "friendly_id_slugs" ("id" bigserial primary key, "slug" character varying NOT NULL, "sluggable_id" integer NOT NULL, "sluggable_type" character varying(50), "scope" character varying, "created_at" timestamp)[0m
+  [1m[35m (1.6ms)[0m  [1m[35mCREATE UNIQUE INDEX  "index_friendly_id_slugs_on_slug_and_sluggable_type_and_scope" ON "friendly_id_slugs"  ("slug", "sluggable_type", "scope")[0m
+  [1m[35m (1.5ms)[0m  [1m[35mCREATE  INDEX  "index_friendly_id_slugs_on_slug_and_sluggable_type" ON "friendly_id_slugs"  ("slug", "sluggable_type")[0m
+  [1m[35m (1.7ms)[0m  [1m[35mCREATE  INDEX  "index_friendly_id_slugs_on_sluggable_type_and_sluggable_id" ON "friendly_id_slugs"  ("sluggable_type", "sluggable_id")[0m
+  [1m[35m (4.8ms)[0m  [1m[35mDROP TABLE IF EXISTS "myportfolios" CASCADE[0m
+  [1m[35m (7.3ms)[0m  [1m[35mCREATE TABLE "myportfolios" ("id" bigserial primary key, "title" character varying, "subtitle" character varying, "body" text, "main_image" text, "thumb_image" text, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (4.0ms)[0m  [1m[35mDROP TABLE IF EXISTS "projects" CASCADE[0m
+  [1m[35m (6.0ms)[0m  [1m[35mCREATE TABLE "projects" ("id" bigserial primary key, "title" character varying, "subtitle" character varying, "body" text, "main_image" text, "thumb_image" text, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (2.9ms)[0m  [1m[35mDROP TABLE IF EXISTS "skills" CASCADE[0m
+  [1m[35m (8.0ms)[0m  [1m[35mCREATE TABLE "skills" ("id" bigserial primary key, "title" character varying, "percent_utilized" integer, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL, "badge" text)[0m
+  [1m[35m (3.4ms)[0m  [1m[35mDROP TABLE IF EXISTS "technologies" CASCADE[0m
+  [1m[35m (5.0ms)[0m  [1m[35mCREATE TABLE "technologies" ("id" bigserial primary key, "name" character varying, "project_id" bigint NOT NULL, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (1.3ms)[0m  [1m[35mCREATE  INDEX  "index_technologies_on_projects_id" ON "technologies"  ("project_id")[0m
+  [1m[35m (2.6ms)[0m  [1m[35mDROP TABLE IF EXISTS "topics" CASCADE[0m
+  [1m[35m (4.8ms)[0m  [1m[35mCREATE TABLE "topics" ("id" bigserial primary key, "title" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (7.1ms)[0m  [1m[35mALTER TABLE "blogs" ADD CONSTRAINT "fk_rails_7f5637ea0d"
+FOREIGN KEY ("topic_id")
+  REFERENCES "topics" ("id")
+[0m
+  [1m[35m (2.1ms)[0m  [1m[35mALTER TABLE "technologies" ADD CONSTRAINT "fk_rails_f54b0d0a8c"
+FOREIGN KEY ("project_id")
+  REFERENCES "projects" ("id")
+[0m
+  [1m[35m (1.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (1.5ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Update (1.2ms)[0m  [1m[33mUPDATE "ar_internal_metadata" SET "value" = $1, "updated_at" = $2 WHERE "ar_internal_metadata"."key" = $3[0m  [["value", "development"], ["updated_at", "2020-06-06 00:39:04.229956"], ["key", "environment"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Update (0.4ms)[0m  [1m[33mUPDATE "ar_internal_metadata" SET "value" = $1, "updated_at" = $2 WHERE "ar_internal_metadata"."key" = $3[0m  [["value", "test"], ["updated_at", "2020-06-06 00:39:04.242567"], ["key", "environment"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "schema_sha1"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Update (0.3ms)[0m  [1m[33mUPDATE "ar_internal_metadata" SET "value" = $1, "updated_at" = $2 WHERE "ar_internal_metadata"."key" = $3[0m  [["value", "f03fb67c836bb2159675fb488a1e5e1f676c992d"], ["updated_at", "2020-06-06 00:39:04.249217"], ["key", "schema_sha1"]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTopic Create (1.3ms)[0m  [1m[32mINSERT INTO "topics" ("title", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["title", "Topic 0"], ["created_at", "2020-06-06 00:39:04.322657"], ["updated_at", "2020-06-06 00:39:04.322657"]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTopic Create (0.5ms)[0m  [1m[32mINSERT INTO "topics" ("title", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["title", "Topic 1"], ["created_at", "2020-06-06 00:39:04.331242"], ["updated_at", "2020-06-06 00:39:04.331242"]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTopic Create (0.4ms)[0m  [1m[32mINSERT INTO "topics" ("title", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["title", "Topic 2"], ["created_at", "2020-06-06 00:39:04.341514"], ["updated_at", "2020-06-06 00:39:04.341514"]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTopic Load (0.4ms)[0m  [1m[34mSELECT "topics".* FROM "topics" ORDER BY "topics"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mBlog Exists? (1.3ms)[0m  [1m[34mSELECT 1 AS one FROM "blogs" WHERE "blogs"."id" IS NOT NULL AND "blogs"."slug" = $1 LIMIT $2[0m  [["slug", "my-blog-post-0"], ["LIMIT", 1]]
+  [1m[36mTopic Load (0.3ms)[0m  [1m[34mSELECT "topics".* FROM "topics" WHERE "topics"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mBlog Create (1.3ms)[0m  [1m[32mINSERT INTO "blogs" ("title", "body", "created_at", "updated_at", "slug", "topic_id") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["title", "My blog Post 0"], ["body", "Corned beef rump swine meatball pork chop short ribs t-bone sirloin chicken bacon pork loin leberkas frankfurter shank. \n        Tongue beef ribs cupim flank swine pancetta. Boudin pork pork belly pork loin filet mignon cow, tongue chislic tenderloin meatloaf pig. Chicken rump spare ribs ham hock kielbasa shoulder chuck kevin frankfurter swine ground round shankle strip steak. \n        Buffalo ball tip pork chop, \n        venison prosciutto salami t-bone hamburger cupim tenderloin tail."], ["created_at", "2020-06-06 00:39:04.450520"], ["updated_at", "2020-06-06 00:39:04.450520"], ["slug", "my-blog-post-0"], ["topic_id", 3]]
+  [1m[35m (6.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTopic Load (0.4ms)[0m  [1m[34mSELECT "topics".* FROM "topics" ORDER BY "topics"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mBlog Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "blogs" WHERE "blogs"."id" IS NOT NULL AND "blogs"."slug" = $1 LIMIT $2[0m  [["slug", "my-blog-post-1"], ["LIMIT", 1]]
+  [1m[36mTopic Load (0.2ms)[0m  [1m[34mSELECT "topics".* FROM "topics" WHERE "topics"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mBlog Create (0.5ms)[0m  [1m[32mINSERT INTO "blogs" ("title", "body", "created_at", "updated_at", "slug", "topic_id") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["title", "My blog Post 1"], ["body", "Corned beef rump swine meatball pork chop short ribs t-bone sirloin chicken bacon pork loin leberkas frankfurter shank. \n        Tongue beef ribs cupim flank swine pancetta. Boudin pork pork belly pork loin filet mignon cow, tongue chislic tenderloin meatloaf pig. Chicken rump spare ribs ham hock kielbasa shoulder chuck kevin frankfurter swine ground round shankle strip steak. \n        Buffalo ball tip pork chop, \n        venison prosciutto salami t-bone hamburger cupim tenderloin tail."], ["created_at", "2020-06-06 00:39:04.467342"], ["updated_at", "2020-06-06 00:39:04.467342"], ["slug", "my-blog-post-1"], ["topic_id", 3]]
+  [1m[35m (5.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTopic Load (0.4ms)[0m  [1m[34mSELECT "topics".* FROM "topics" ORDER BY "topics"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mBlog Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "blogs" WHERE "blogs"."id" IS NOT NULL AND "blogs"."slug" = $1 LIMIT $2[0m  [["slug", "my-blog-post-2"], ["LIMIT", 1]]
+  [1m[36mTopic Load (0.5ms)[0m  [1m[34mSELECT "topics".* FROM "topics" WHERE "topics"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mBlog Create (0.7ms)[0m  [1m[32mINSERT INTO "blogs" ("title", "body", "created_at", "updated_at", "slug", "topic_id") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["title", "My blog Post 2"], ["body", "Corned beef rump swine meatball pork chop short ribs t-bone sirloin chicken bacon pork loin leberkas frankfurter shank. \n        Tongue beef ribs cupim flank swine pancetta. Boudin pork pork belly pork loin filet mignon cow, tongue chislic tenderloin meatloaf pig. Chicken rump spare ribs ham hock kielbasa shoulder chuck kevin frankfurter swine ground round shankle strip steak. \n        Buffalo ball tip pork chop, \n        venison prosciutto salami t-bone hamburger cupim tenderloin tail."], ["created_at", "2020-06-06 00:39:04.483394"], ["updated_at", "2020-06-06 00:39:04.483394"], ["slug", "my-blog-post-2"], ["topic_id", 3]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTopic Load (0.2ms)[0m  [1m[34mSELECT "topics".* FROM "topics" ORDER BY "topics"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mBlog Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "blogs" WHERE "blogs"."id" IS NOT NULL AND "blogs"."slug" = $1 LIMIT $2[0m  [["slug", "my-blog-post-3"], ["LIMIT", 1]]
+  [1m[36mTopic Load (0.2ms)[0m  [1m[34mSELECT "topics".* FROM "topics" WHERE "topics"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mBlog Create (0.5ms)[0m  [1m[32mINSERT INTO "blogs" ("title", "body", "created_at", "updated_at", "slug", "topic_id") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["title", "My blog Post 3"], ["body", "Corned beef rump swine meatball pork chop short ribs t-bone sirloin chicken bacon pork loin leberkas frankfurter shank. \n        Tongue beef ribs cupim flank swine pancetta. Boudin pork pork belly pork loin filet mignon cow, tongue chislic tenderloin meatloaf pig. Chicken rump spare ribs ham hock kielbasa shoulder chuck kevin frankfurter swine ground round shankle strip steak. \n        Buffalo ball tip pork chop, \n        venison prosciutto salami t-bone hamburger cupim tenderloin tail."], ["created_at", "2020-06-06 00:39:04.493554"], ["updated_at", "2020-06-06 00:39:04.493554"], ["slug", "my-blog-post-3"], ["topic_id", 3]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTopic Load (0.3ms)[0m  [1m[34mSELECT "topics".* FROM "topics" ORDER BY "topics"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mBlog Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "blogs" WHERE "blogs"."id" IS NOT NULL AND "blogs"."slug" = $1 LIMIT $2[0m  [["slug", "my-blog-post-4"], ["LIMIT", 1]]
+  [1m[36mTopic Load (0.2ms)[0m  [1m[34mSELECT "topics".* FROM "topics" WHERE "topics"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mBlog Create (0.5ms)[0m  [1m[32mINSERT INTO "blogs" ("title", "body", "created_at", "updated_at", "slug", "topic_id") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["title", "My blog Post 4"], ["body", "Corned beef rump swine meatball pork chop short ribs t-bone sirloin chicken bacon pork loin leberkas frankfurter shank. \n        Tongue beef ribs cupim flank swine pancetta. Boudin pork pork belly pork loin filet mignon cow, tongue chislic tenderloin meatloaf pig. Chicken rump spare ribs ham hock kielbasa shoulder chuck kevin frankfurter swine ground round shankle strip steak. \n        Buffalo ball tip pork chop, \n        venison prosciutto salami t-bone hamburger cupim tenderloin tail."], ["created_at", "2020-06-06 00:39:04.502762"], ["updated_at", "2020-06-06 00:39:04.502762"], ["slug", "my-blog-post-4"], ["topic_id", 3]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTopic Load (0.3ms)[0m  [1m[34mSELECT "topics".* FROM "topics" ORDER BY "topics"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mBlog Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "blogs" WHERE "blogs"."id" IS NOT NULL AND "blogs"."slug" = $1 LIMIT $2[0m  [["slug", "my-blog-post-5"], ["LIMIT", 1]]
+  [1m[36mTopic Load (0.3ms)[0m  [1m[34mSELECT "topics".* FROM "topics" WHERE "topics"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mBlog Create (0.5ms)[0m  [1m[32mINSERT INTO "blogs" ("title", "body", "created_at", "updated_at", "slug", "topic_id") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["title", "My blog Post 5"], ["body", "Corned beef rump swine meatball pork chop short ribs t-bone sirloin chicken bacon pork loin leberkas frankfurter shank. \n        Tongue beef ribs cupim flank swine pancetta. Boudin pork pork belly pork loin filet mignon cow, tongue chislic tenderloin meatloaf pig. Chicken rump spare ribs ham hock kielbasa shoulder chuck kevin frankfurter swine ground round shankle strip steak. \n        Buffalo ball tip pork chop, \n        venison prosciutto salami t-bone hamburger cupim tenderloin tail."], ["created_at", "2020-06-06 00:39:04.512236"], ["updated_at", "2020-06-06 00:39:04.512236"], ["slug", "my-blog-post-5"], ["topic_id", 3]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTopic Load (0.3ms)[0m  [1m[34mSELECT "topics".* FROM "topics" ORDER BY "topics"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mBlog Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "blogs" WHERE "blogs"."id" IS NOT NULL AND "blogs"."slug" = $1 LIMIT $2[0m  [["slug", "my-blog-post-6"], ["LIMIT", 1]]
+  [1m[36mTopic Load (0.2ms)[0m  [1m[34mSELECT "topics".* FROM "topics" WHERE "topics"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mBlog Create (0.4ms)[0m  [1m[32mINSERT INTO "blogs" ("title", "body", "created_at", "updated_at", "slug", "topic_id") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["title", "My blog Post 6"], ["body", "Corned beef rump swine meatball pork chop short ribs t-bone sirloin chicken bacon pork loin leberkas frankfurter shank. \n        Tongue beef ribs cupim flank swine pancetta. Boudin pork pork belly pork loin filet mignon cow, tongue chislic tenderloin meatloaf pig. Chicken rump spare ribs ham hock kielbasa shoulder chuck kevin frankfurter swine ground round shankle strip steak. \n        Buffalo ball tip pork chop, \n        venison prosciutto salami t-bone hamburger cupim tenderloin tail."], ["created_at", "2020-06-06 00:39:04.521399"], ["updated_at", "2020-06-06 00:39:04.521399"], ["slug", "my-blog-post-6"], ["topic_id", 3]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTopic Load (0.3ms)[0m  [1m[34mSELECT "topics".* FROM "topics" ORDER BY "topics"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mBlog Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "blogs" WHERE "blogs"."id" IS NOT NULL AND "blogs"."slug" = $1 LIMIT $2[0m  [["slug", "my-blog-post-7"], ["LIMIT", 1]]
+  [1m[36mTopic Load (0.2ms)[0m  [1m[34mSELECT "topics".* FROM "topics" WHERE "topics"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mBlog Create (0.4ms)[0m  [1m[32mINSERT INTO "blogs" ("title", "body", "created_at", "updated_at", "slug", "topic_id") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["title", "My blog Post 7"], ["body", "Corned beef rump swine meatball pork chop short ribs t-bone sirloin chicken bacon pork loin leberkas frankfurter shank. \n        Tongue beef ribs cupim flank swine pancetta. Boudin pork pork belly pork loin filet mignon cow, tongue chislic tenderloin meatloaf pig. Chicken rump spare ribs ham hock kielbasa shoulder chuck kevin frankfurter swine ground round shankle strip steak. \n        Buffalo ball tip pork chop, \n        venison prosciutto salami t-bone hamburger cupim tenderloin tail."], ["created_at", "2020-06-06 00:39:04.530745"], ["updated_at", "2020-06-06 00:39:04.530745"], ["slug", "my-blog-post-7"], ["topic_id", 3]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTopic Load (0.3ms)[0m  [1m[34mSELECT "topics".* FROM "topics" ORDER BY "topics"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mBlog Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "blogs" WHERE "blogs"."id" IS NOT NULL AND "blogs"."slug" = $1 LIMIT $2[0m  [["slug", "my-blog-post-8"], ["LIMIT", 1]]
+  [1m[36mTopic Load (0.2ms)[0m  [1m[34mSELECT "topics".* FROM "topics" WHERE "topics"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mBlog Create (0.5ms)[0m  [1m[32mINSERT INTO "blogs" ("title", "body", "created_at", "updated_at", "slug", "topic_id") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["title", "My blog Post 8"], ["body", "Corned beef rump swine meatball pork chop short ribs t-bone sirloin chicken bacon pork loin leberkas frankfurter shank. \n        Tongue beef ribs cupim flank swine pancetta. Boudin pork pork belly pork loin filet mignon cow, tongue chislic tenderloin meatloaf pig. Chicken rump spare ribs ham hock kielbasa shoulder chuck kevin frankfurter swine ground round shankle strip steak. \n        Buffalo ball tip pork chop, \n        venison prosciutto salami t-bone hamburger cupim tenderloin tail."], ["created_at", "2020-06-06 00:39:04.542696"], ["updated_at", "2020-06-06 00:39:04.542696"], ["slug", "my-blog-post-8"], ["topic_id", 3]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTopic Load (0.3ms)[0m  [1m[34mSELECT "topics".* FROM "topics" ORDER BY "topics"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mBlog Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "blogs" WHERE "blogs"."id" IS NOT NULL AND "blogs"."slug" = $1 LIMIT $2[0m  [["slug", "my-blog-post-9"], ["LIMIT", 1]]
+  [1m[36mTopic Load (0.2ms)[0m  [1m[34mSELECT "topics".* FROM "topics" WHERE "topics"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mBlog Create (0.5ms)[0m  [1m[32mINSERT INTO "blogs" ("title", "body", "created_at", "updated_at", "slug", "topic_id") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["title", "My blog Post 9"], ["body", "Corned beef rump swine meatball pork chop short ribs t-bone sirloin chicken bacon pork loin leberkas frankfurter shank. \n        Tongue beef ribs cupim flank swine pancetta. Boudin pork pork belly pork loin filet mignon cow, tongue chislic tenderloin meatloaf pig. Chicken rump spare ribs ham hock kielbasa shoulder chuck kevin frankfurter swine ground round shankle strip steak. \n        Buffalo ball tip pork chop, \n        venison prosciutto salami t-bone hamburger cupim tenderloin tail."], ["created_at", "2020-06-06 00:39:04.552184"], ["updated_at", "2020-06-06 00:39:04.552184"], ["slug", "my-blog-post-9"], ["topic_id", 3]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mSkill Create (0.9ms)[0m  [1m[32mINSERT INTO "skills" ("title", "percent_utilized", "created_at", "updated_at", "badge") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["title", "Rails 0"], ["percent_utilized", 15], ["created_at", "2020-06-06 00:39:04.571939"], ["updated_at", "2020-06-06 00:39:04.571939"], ["badge", "http://placehold.it/250x250"]]
+  [1m[35m (6.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mSkill Create (0.5ms)[0m  [1m[32mINSERT INTO "skills" ("title", "percent_utilized", "created_at", "updated_at", "badge") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["title", "Rails 1"], ["percent_utilized", 15], ["created_at", "2020-06-06 00:39:04.583837"], ["updated_at", "2020-06-06 00:39:04.583837"], ["badge", "http://placehold.it/250x250"]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mSkill Create (0.6ms)[0m  [1m[32mINSERT INTO "skills" ("title", "percent_utilized", "created_at", "updated_at", "badge") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["title", "Rails 2"], ["percent_utilized", 15], ["created_at", "2020-06-06 00:39:04.590142"], ["updated_at", "2020-06-06 00:39:04.590142"], ["badge", "http://placehold.it/250x250"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mSkill Create (0.4ms)[0m  [1m[32mINSERT INTO "skills" ("title", "percent_utilized", "created_at", "updated_at", "badge") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["title", "Rails 3"], ["percent_utilized", 15], ["created_at", "2020-06-06 00:39:04.596364"], ["updated_at", "2020-06-06 00:39:04.596364"], ["badge", "http://placehold.it/250x250"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mSkill Create (0.3ms)[0m  [1m[32mINSERT INTO "skills" ("title", "percent_utilized", "created_at", "updated_at", "badge") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["title", "Rails 4"], ["percent_utilized", 15], ["created_at", "2020-06-06 00:39:04.600881"], ["updated_at", "2020-06-06 00:39:04.600881"], ["badge", "http://placehold.it/250x250"]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mProject Create (1.0ms)[0m  [1m[32mINSERT INTO "projects" ("title", "subtitle", "body", "main_image", "thumb_image", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["title", "Portfolio title: 0"], ["subtitle", "React"], ["body", "Bacon ipsum dolor amet short loin flank sausage beef ribs pork chop. \n        Prosciutto porchetta \n        spare ribs pork, ham hock filet mignon \n        jowl brisket doner chicken shoulder. Spare ribs leberkas tongue,"], ["main_image", "http://placehold.it/600x400"], ["thumb_image", "http://placehold.it/350x200"], ["created_at", "2020-06-06 00:39:04.626117"], ["updated_at", "2020-06-06 00:39:04.626117"]]
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mProject Create (0.5ms)[0m  [1m[32mINSERT INTO "projects" ("title", "subtitle", "body", "main_image", "thumb_image", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["title", "Portfolio title: 0"], ["subtitle", "Ruby on Rails"], ["body", "Bacon ipsum dolor amet short loin flank sausage beef ribs pork chop. \n        Prosciutto porchetta \n        spare ribs pork, ham hock filet mignon \n        jowl brisket doner chicken shoulder. Spare ribs leberkas tongue,"], ["main_image", "http://placehold.it/600x400"], ["thumb_image", "http://placehold.it/350x200"], ["created_at", "2020-06-06 00:39:04.633270"], ["updated_at", "2020-06-06 00:39:04.633270"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mProject Create (0.5ms)[0m  [1m[32mINSERT INTO "projects" ("title", "subtitle", "body", "main_image", "thumb_image", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["title", "Portfolio title: 1"], ["subtitle", "Ruby on Rails"], ["body", "Bacon ipsum dolor amet short loin flank sausage beef ribs pork chop. \n        Prosciutto porchetta \n        spare ribs pork, ham hock filet mignon \n        jowl brisket doner chicken shoulder. Spare ribs leberkas tongue,"], ["main_image", "http://placehold.it/600x400"], ["thumb_image", "http://placehold.it/350x200"], ["created_at", "2020-06-06 00:39:04.639208"], ["updated_at", "2020-06-06 00:39:04.639208"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mProject Create (0.4ms)[0m  [1m[32mINSERT INTO "projects" ("title", "subtitle", "body", "main_image", "thumb_image", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["title", "Portfolio title: 2"], ["subtitle", "Ruby on Rails"], ["body", "Bacon ipsum dolor amet short loin flank sausage beef ribs pork chop. \n        Prosciutto porchetta \n        spare ribs pork, ham hock filet mignon \n        jowl brisket doner chicken shoulder. Spare ribs leberkas tongue,"], ["main_image", "http://placehold.it/600x400"], ["thumb_image", "http://placehold.it/350x200"], ["created_at", "2020-06-06 00:39:04.644911"], ["updated_at", "2020-06-06 00:39:04.644911"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mProject Create (0.3ms)[0m  [1m[32mINSERT INTO "projects" ("title", "subtitle", "body", "main_image", "thumb_image", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["title", "Portfolio title: 3"], ["subtitle", "Ruby on Rails"], ["body", "Bacon ipsum dolor amet short loin flank sausage beef ribs pork chop. \n        Prosciutto porchetta \n        spare ribs pork, ham hock filet mignon \n        jowl brisket doner chicken shoulder. Spare ribs leberkas tongue,"], ["main_image", "http://placehold.it/600x400"], ["thumb_image", "http://placehold.it/350x200"], ["created_at", "2020-06-06 00:39:04.649902"], ["updated_at", "2020-06-06 00:39:04.649902"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mProject Create (0.5ms)[0m  [1m[32mINSERT INTO "projects" ("title", "subtitle", "body", "main_image", "thumb_image", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["title", "Portfolio title: 4"], ["subtitle", "Ruby on Rails"], ["body", "Bacon ipsum dolor amet short loin flank sausage beef ribs pork chop. \n        Prosciutto porchetta \n        spare ribs pork, ham hock filet mignon \n        jowl brisket doner chicken shoulder. Spare ribs leberkas tongue,"], ["main_image", "http://placehold.it/600x400"], ["thumb_image", "http://placehold.it/350x200"], ["created_at", "2020-06-06 00:39:04.658303"], ["updated_at", "2020-06-06 00:39:04.658303"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mProject Create (0.3ms)[0m  [1m[32mINSERT INTO "projects" ("title", "subtitle", "body", "main_image", "thumb_image", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["title", "Portfolio title: 5"], ["subtitle", "Ruby on Rails"], ["body", "Bacon ipsum dolor amet short loin flank sausage beef ribs pork chop. \n        Prosciutto porchetta \n        spare ribs pork, ham hock filet mignon \n        jowl brisket doner chicken shoulder. Spare ribs leberkas tongue,"], ["main_image", "http://placehold.it/600x400"], ["thumb_image", "http://placehold.it/350x200"], ["created_at", "2020-06-06 00:39:04.663478"], ["updated_at", "2020-06-06 00:39:04.663478"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mProject Create (0.3ms)[0m  [1m[32mINSERT INTO "projects" ("title", "subtitle", "body", "main_image", "thumb_image", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["title", "Portfolio title: 6"], ["subtitle", "Ruby on Rails"], ["body", "Bacon ipsum dolor amet short loin flank sausage beef ribs pork chop. \n        Prosciutto porchetta \n        spare ribs pork, ham hock filet mignon \n        jowl brisket doner chicken shoulder. Spare ribs leberkas tongue,"], ["main_image", "http://placehold.it/600x400"], ["thumb_image", "http://placehold.it/350x200"], ["created_at", "2020-06-06 00:39:04.667966"], ["updated_at", "2020-06-06 00:39:04.667966"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mProject Create (0.5ms)[0m  [1m[32mINSERT INTO "projects" ("title", "subtitle", "body", "main_image", "thumb_image", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["title", "Portfolio title: 7"], ["subtitle", "Ruby on Rails"], ["body", "Bacon ipsum dolor amet short loin flank sausage beef ribs pork chop. \n        Prosciutto porchetta \n        spare ribs pork, ham hock filet mignon \n        jowl brisket doner chicken shoulder. Spare ribs leberkas tongue,"], ["main_image", "http://placehold.it/600x400"], ["thumb_image", "http://placehold.it/350x200"], ["created_at", "2020-06-06 00:39:04.672470"], ["updated_at", "2020-06-06 00:39:04.672470"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mProject Load (0.4ms)[0m  [1m[34mSELECT "projects".* FROM "projects" ORDER BY "projects"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[35m (0.6ms)[0m  [1m[35mCREATE DATABASE "portfolio_development" ENCODING = 'unicode'[0m
+  [1m[35m (0.6ms)[0m  [1m[35mCREATE DATABASE "portfolio_test" ENCODING = 'unicode'[0m
+  [1m[35m (1.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35mSQL (0.4ms)[0m  [1m[35mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  [1m[35m (6.7ms)[0m  [1m[35mDROP TABLE IF EXISTS "blogs" CASCADE[0m
+  [1m[35m (8.4ms)[0m  [1m[35mCREATE TABLE "blogs" ("id" bigserial primary key, "title" character varying, "body" text, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL, "slug" character varying, "status" integer DEFAULT 0, "topic_id" bigint)[0m
+  [1m[35m (1.6ms)[0m  [1m[35mCREATE UNIQUE INDEX  "index_blogs_on_slug" ON "blogs"  ("slug")[0m
+  [1m[35m (1.5ms)[0m  [1m[35mCREATE  INDEX  "index_blogs_on_topic_id" ON "blogs"  ("topic_id")[0m
+  [1m[35m (3.6ms)[0m  [1m[35mDROP TABLE IF EXISTS "friendly_id_slugs" CASCADE[0m
+  [1m[35m (4.8ms)[0m  [1m[35mCREATE TABLE "friendly_id_slugs" ("id" bigserial primary key, "slug" character varying NOT NULL, "sluggable_id" integer NOT NULL, "sluggable_type" character varying(50), "scope" character varying, "created_at" timestamp)[0m
+  [1m[35m (1.7ms)[0m  [1m[35mCREATE UNIQUE INDEX  "index_friendly_id_slugs_on_slug_and_sluggable_type_and_scope" ON "friendly_id_slugs"  ("slug", "sluggable_type", "scope")[0m
+  [1m[35m (1.5ms)[0m  [1m[35mCREATE  INDEX  "index_friendly_id_slugs_on_slug_and_sluggable_type" ON "friendly_id_slugs"  ("slug", "sluggable_type")[0m
+  [1m[35m (1.7ms)[0m  [1m[35mCREATE  INDEX  "index_friendly_id_slugs_on_sluggable_type_and_sluggable_id" ON "friendly_id_slugs"  ("sluggable_type", "sluggable_id")[0m
+  [1m[35m (2.8ms)[0m  [1m[35mDROP TABLE IF EXISTS "myportfolios" CASCADE[0m
+  [1m[35m (4.8ms)[0m  [1m[35mCREATE TABLE "myportfolios" ("id" bigserial primary key, "title" character varying, "subtitle" character varying, "body" text, "main_image" text, "thumb_image" text, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (3.4ms)[0m  [1m[35mDROP TABLE IF EXISTS "projects" CASCADE[0m
+  [1m[35m (4.9ms)[0m  [1m[35mCREATE TABLE "projects" ("id" bigserial primary key, "title" character varying, "subtitle" character varying, "body" text, "main_image" text, "thumb_image" text, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (2.8ms)[0m  [1m[35mDROP TABLE IF EXISTS "skills" CASCADE[0m
+  [1m[35m (5.0ms)[0m  [1m[35mCREATE TABLE "skills" ("id" bigserial primary key, "title" character varying, "percent_utilized" integer, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL, "badge" text)[0m
+  [1m[35m (3.2ms)[0m  [1m[35mDROP TABLE IF EXISTS "technologies" CASCADE[0m
+  [1m[35m (5.1ms)[0m  [1m[35mCREATE TABLE "technologies" ("id" bigserial primary key, "name" character varying, "project_id" bigint NOT NULL, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (1.4ms)[0m  [1m[35mCREATE  INDEX  "index_technologies_on_projects_id" ON "technologies"  ("project_id")[0m
+  [1m[35m (2.7ms)[0m  [1m[35mDROP TABLE IF EXISTS "topics" CASCADE[0m
+  [1m[35m (5.1ms)[0m  [1m[35mCREATE TABLE "topics" ("id" bigserial primary key, "title" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (2.8ms)[0m  [1m[35mALTER TABLE "blogs" ADD CONSTRAINT "fk_rails_7f5637ea0d"
+FOREIGN KEY ("topic_id")
+  REFERENCES "topics" ("id")
+[0m
+  [1m[35m (2.0ms)[0m  [1m[35mALTER TABLE "technologies" ADD CONSTRAINT "fk_rails_f54b0d0a8c"
+FOREIGN KEY ("project_id")
+  REFERENCES "projects" ("id")
+[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.8ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "schema_sha1"], ["LIMIT", 1]]
+  [1m[35mSQL (0.6ms)[0m  [1m[35mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  [1m[35m (8.4ms)[0m  [1m[35mDROP TABLE IF EXISTS "blogs" CASCADE[0m
+  [1m[35m (9.1ms)[0m  [1m[35mCREATE TABLE "blogs" ("id" bigserial primary key, "title" character varying, "body" text, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL, "slug" character varying, "status" integer DEFAULT 0, "topic_id" bigint)[0m
+  [1m[35m (1.8ms)[0m  [1m[35mCREATE UNIQUE INDEX  "index_blogs_on_slug" ON "blogs"  ("slug")[0m
+  [1m[35m (1.3ms)[0m  [1m[35mCREATE  INDEX  "index_blogs_on_topic_id" ON "blogs"  ("topic_id")[0m
+  [1m[35m (3.7ms)[0m  [1m[35mDROP TABLE IF EXISTS "friendly_id_slugs" CASCADE[0m
+  [1m[35m (5.2ms)[0m  [1m[35mCREATE TABLE "friendly_id_slugs" ("id" bigserial primary key, "slug" character varying NOT NULL, "sluggable_id" integer NOT NULL, "sluggable_type" character varying(50), "scope" character varying, "created_at" timestamp)[0m
+  [1m[35m (2.2ms)[0m  [1m[35mCREATE UNIQUE INDEX  "index_friendly_id_slugs_on_slug_and_sluggable_type_and_scope" ON "friendly_id_slugs"  ("slug", "sluggable_type", "scope")[0m
+  [1m[35m (1.5ms)[0m  [1m[35mCREATE  INDEX  "index_friendly_id_slugs_on_slug_and_sluggable_type" ON "friendly_id_slugs"  ("slug", "sluggable_type")[0m
+  [1m[35m (1.6ms)[0m  [1m[35mCREATE  INDEX  "index_friendly_id_slugs_on_sluggable_type_and_sluggable_id" ON "friendly_id_slugs"  ("sluggable_type", "sluggable_id")[0m
+  [1m[35m (2.7ms)[0m  [1m[35mDROP TABLE IF EXISTS "myportfolios" CASCADE[0m
+  [1m[35m (5.2ms)[0m  [1m[35mCREATE TABLE "myportfolios" ("id" bigserial primary key, "title" character varying, "subtitle" character varying, "body" text, "main_image" text, "thumb_image" text, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (3.5ms)[0m  [1m[35mDROP TABLE IF EXISTS "projects" CASCADE[0m
+  [1m[35m (5.3ms)[0m  [1m[35mCREATE TABLE "projects" ("id" bigserial primary key, "title" character varying, "subtitle" character varying, "body" text, "main_image" text, "thumb_image" text, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (2.9ms)[0m  [1m[35mDROP TABLE IF EXISTS "skills" CASCADE[0m
+  [1m[35m (5.3ms)[0m  [1m[35mCREATE TABLE "skills" ("id" bigserial primary key, "title" character varying, "percent_utilized" integer, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL, "badge" text)[0m
+  [1m[35m (3.5ms)[0m  [1m[35mDROP TABLE IF EXISTS "technologies" CASCADE[0m
+  [1m[35m (5.1ms)[0m  [1m[35mCREATE TABLE "technologies" ("id" bigserial primary key, "name" character varying, "project_id" bigint NOT NULL, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (1.4ms)[0m  [1m[35mCREATE  INDEX  "index_technologies_on_projects_id" ON "technologies"  ("project_id")[0m
+  [1m[35m (2.7ms)[0m  [1m[35mDROP TABLE IF EXISTS "topics" CASCADE[0m
+  [1m[35m (4.9ms)[0m  [1m[35mCREATE TABLE "topics" ("id" bigserial primary key, "title" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (2.7ms)[0m  [1m[35mALTER TABLE "blogs" ADD CONSTRAINT "fk_rails_7f5637ea0d"
+FOREIGN KEY ("topic_id")
+  REFERENCES "topics" ("id")
+[0m
+  [1m[35m (2.2ms)[0m  [1m[35mALTER TABLE "technologies" ADD CONSTRAINT "fk_rails_f54b0d0a8c"
+FOREIGN KEY ("project_id")
+  REFERENCES "projects" ("id")
+[0m
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.5ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Update (0.6ms)[0m  [1m[33mUPDATE "ar_internal_metadata" SET "value" = $1, "updated_at" = $2 WHERE "ar_internal_metadata"."key" = $3[0m  [["value", "development"], ["updated_at", "2020-06-06 00:42:21.243892"], ["key", "environment"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Update (0.4ms)[0m  [1m[33mUPDATE "ar_internal_metadata" SET "value" = $1, "updated_at" = $2 WHERE "ar_internal_metadata"."key" = $3[0m  [["value", "test"], ["updated_at", "2020-06-06 00:42:21.251494"], ["key", "environment"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.4ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "schema_sha1"], ["LIMIT", 1]]
+  [1m[35m (1.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTopic Create (1.0ms)[0m  [1m[32mINSERT INTO "topics" ("title", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["title", "Topic 0"], ["created_at", "2020-06-06 00:42:21.328134"], ["updated_at", "2020-06-06 00:42:21.328134"]]
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTopic Create (0.4ms)[0m  [1m[32mINSERT INTO "topics" ("title", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["title", "Topic 1"], ["created_at", "2020-06-06 00:42:21.334364"], ["updated_at", "2020-06-06 00:42:21.334364"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTopic Create (0.3ms)[0m  [1m[32mINSERT INTO "topics" ("title", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["title", "Topic 2"], ["created_at", "2020-06-06 00:42:21.339012"], ["updated_at", "2020-06-06 00:42:21.339012"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTopic Load (0.4ms)[0m  [1m[34mSELECT "topics".* FROM "topics" ORDER BY "topics"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mBlog Exists? (1.3ms)[0m  [1m[34mSELECT 1 AS one FROM "blogs" WHERE "blogs"."id" IS NOT NULL AND "blogs"."slug" = $1 LIMIT $2[0m  [["slug", "my-blog-post-0"], ["LIMIT", 1]]
+  [1m[36mTopic Load (0.3ms)[0m  [1m[34mSELECT "topics".* FROM "topics" WHERE "topics"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mBlog Create (1.5ms)[0m  [1m[32mINSERT INTO "blogs" ("title", "body", "created_at", "updated_at", "slug", "topic_id") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["title", "My blog Post 0"], ["body", "Corned beef rump swine meatball pork chop short ribs t-bone sirloin chicken bacon pork loin leberkas frankfurter shank. \n        Tongue beef ribs cupim flank swine pancetta. Boudin pork pork belly pork loin filet mignon cow, tongue chislic tenderloin meatloaf pig. Chicken rump spare ribs ham hock kielbasa shoulder chuck kevin frankfurter swine ground round shankle strip steak. \n        Buffalo ball tip pork chop, \n        venison prosciutto salami t-bone hamburger cupim tenderloin tail."], ["created_at", "2020-06-06 00:42:21.435164"], ["updated_at", "2020-06-06 00:42:21.435164"], ["slug", "my-blog-post-0"], ["topic_id", 3]]
+  [1m[35m (0.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTopic Load (0.5ms)[0m  [1m[34mSELECT "topics".* FROM "topics" ORDER BY "topics"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mBlog Exists? (0.5ms)[0m  [1m[34mSELECT 1 AS one FROM "blogs" WHERE "blogs"."id" IS NOT NULL AND "blogs"."slug" = $1 LIMIT $2[0m  [["slug", "my-blog-post-1"], ["LIMIT", 1]]
+  [1m[36mTopic Load (0.2ms)[0m  [1m[34mSELECT "topics".* FROM "topics" WHERE "topics"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mBlog Create (0.6ms)[0m  [1m[32mINSERT INTO "blogs" ("title", "body", "created_at", "updated_at", "slug", "topic_id") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["title", "My blog Post 1"], ["body", "Corned beef rump swine meatball pork chop short ribs t-bone sirloin chicken bacon pork loin leberkas frankfurter shank. \n        Tongue beef ribs cupim flank swine pancetta. Boudin pork pork belly pork loin filet mignon cow, tongue chislic tenderloin meatloaf pig. Chicken rump spare ribs ham hock kielbasa shoulder chuck kevin frankfurter swine ground round shankle strip steak. \n        Buffalo ball tip pork chop, \n        venison prosciutto salami t-bone hamburger cupim tenderloin tail."], ["created_at", "2020-06-06 00:42:21.449041"], ["updated_at", "2020-06-06 00:42:21.449041"], ["slug", "my-blog-post-1"], ["topic_id", 3]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTopic Load (0.3ms)[0m  [1m[34mSELECT "topics".* FROM "topics" ORDER BY "topics"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mBlog Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "blogs" WHERE "blogs"."id" IS NOT NULL AND "blogs"."slug" = $1 LIMIT $2[0m  [["slug", "my-blog-post-2"], ["LIMIT", 1]]
+  [1m[36mTopic Load (0.5ms)[0m  [1m[34mSELECT "topics".* FROM "topics" WHERE "topics"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mBlog Create (0.7ms)[0m  [1m[32mINSERT INTO "blogs" ("title", "body", "created_at", "updated_at", "slug", "topic_id") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["title", "My blog Post 2"], ["body", "Corned beef rump swine meatball pork chop short ribs t-bone sirloin chicken bacon pork loin leberkas frankfurter shank. \n        Tongue beef ribs cupim flank swine pancetta. Boudin pork pork belly pork loin filet mignon cow, tongue chislic tenderloin meatloaf pig. Chicken rump spare ribs ham hock kielbasa shoulder chuck kevin frankfurter swine ground round shankle strip steak. \n        Buffalo ball tip pork chop, \n        venison prosciutto salami t-bone hamburger cupim tenderloin tail."], ["created_at", "2020-06-06 00:42:21.460938"], ["updated_at", "2020-06-06 00:42:21.460938"], ["slug", "my-blog-post-2"], ["topic_id", 3]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTopic Load (0.2ms)[0m  [1m[34mSELECT "topics".* FROM "topics" ORDER BY "topics"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mBlog Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "blogs" WHERE "blogs"."id" IS NOT NULL AND "blogs"."slug" = $1 LIMIT $2[0m  [["slug", "my-blog-post-3"], ["LIMIT", 1]]
+  [1m[36mTopic Load (0.2ms)[0m  [1m[34mSELECT "topics".* FROM "topics" WHERE "topics"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mBlog Create (0.5ms)[0m  [1m[32mINSERT INTO "blogs" ("title", "body", "created_at", "updated_at", "slug", "topic_id") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["title", "My blog Post 3"], ["body", "Corned beef rump swine meatball pork chop short ribs t-bone sirloin chicken bacon pork loin leberkas frankfurter shank. \n        Tongue beef ribs cupim flank swine pancetta. Boudin pork pork belly pork loin filet mignon cow, tongue chislic tenderloin meatloaf pig. Chicken rump spare ribs ham hock kielbasa shoulder chuck kevin frankfurter swine ground round shankle strip steak. \n        Buffalo ball tip pork chop, \n        venison prosciutto salami t-bone hamburger cupim tenderloin tail."], ["created_at", "2020-06-06 00:42:21.470687"], ["updated_at", "2020-06-06 00:42:21.470687"], ["slug", "my-blog-post-3"], ["topic_id", 3]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTopic Load (0.3ms)[0m  [1m[34mSELECT "topics".* FROM "topics" ORDER BY "topics"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mBlog Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "blogs" WHERE "blogs"."id" IS NOT NULL AND "blogs"."slug" = $1 LIMIT $2[0m  [["slug", "my-blog-post-4"], ["LIMIT", 1]]
+  [1m[36mTopic Load (0.2ms)[0m  [1m[34mSELECT "topics".* FROM "topics" WHERE "topics"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mBlog Create (0.5ms)[0m  [1m[32mINSERT INTO "blogs" ("title", "body", "created_at", "updated_at", "slug", "topic_id") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["title", "My blog Post 4"], ["body", "Corned beef rump swine meatball pork chop short ribs t-bone sirloin chicken bacon pork loin leberkas frankfurter shank. \n        Tongue beef ribs cupim flank swine pancetta. Boudin pork pork belly pork loin filet mignon cow, tongue chislic tenderloin meatloaf pig. Chicken rump spare ribs ham hock kielbasa shoulder chuck kevin frankfurter swine ground round shankle strip steak. \n        Buffalo ball tip pork chop, \n        venison prosciutto salami t-bone hamburger cupim tenderloin tail."], ["created_at", "2020-06-06 00:42:21.479770"], ["updated_at", "2020-06-06 00:42:21.479770"], ["slug", "my-blog-post-4"], ["topic_id", 3]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTopic Load (0.3ms)[0m  [1m[34mSELECT "topics".* FROM "topics" ORDER BY "topics"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mBlog Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "blogs" WHERE "blogs"."id" IS NOT NULL AND "blogs"."slug" = $1 LIMIT $2[0m  [["slug", "my-blog-post-5"], ["LIMIT", 1]]
+  [1m[36mTopic Load (0.2ms)[0m  [1m[34mSELECT "topics".* FROM "topics" WHERE "topics"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mBlog Create (0.5ms)[0m  [1m[32mINSERT INTO "blogs" ("title", "body", "created_at", "updated_at", "slug", "topic_id") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["title", "My blog Post 5"], ["body", "Corned beef rump swine meatball pork chop short ribs t-bone sirloin chicken bacon pork loin leberkas frankfurter shank. \n        Tongue beef ribs cupim flank swine pancetta. Boudin pork pork belly pork loin filet mignon cow, tongue chislic tenderloin meatloaf pig. Chicken rump spare ribs ham hock kielbasa shoulder chuck kevin frankfurter swine ground round shankle strip steak. \n        Buffalo ball tip pork chop, \n        venison prosciutto salami t-bone hamburger cupim tenderloin tail."], ["created_at", "2020-06-06 00:42:21.488894"], ["updated_at", "2020-06-06 00:42:21.488894"], ["slug", "my-blog-post-5"], ["topic_id", 3]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTopic Load (0.3ms)[0m  [1m[34mSELECT "topics".* FROM "topics" ORDER BY "topics"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mBlog Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "blogs" WHERE "blogs"."id" IS NOT NULL AND "blogs"."slug" = $1 LIMIT $2[0m  [["slug", "my-blog-post-6"], ["LIMIT", 1]]
+  [1m[36mTopic Load (0.2ms)[0m  [1m[34mSELECT "topics".* FROM "topics" WHERE "topics"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mBlog Create (0.4ms)[0m  [1m[32mINSERT INTO "blogs" ("title", "body", "created_at", "updated_at", "slug", "topic_id") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["title", "My blog Post 6"], ["body", "Corned beef rump swine meatball pork chop short ribs t-bone sirloin chicken bacon pork loin leberkas frankfurter shank. \n        Tongue beef ribs cupim flank swine pancetta. Boudin pork pork belly pork loin filet mignon cow, tongue chislic tenderloin meatloaf pig. Chicken rump spare ribs ham hock kielbasa shoulder chuck kevin frankfurter swine ground round shankle strip steak. \n        Buffalo ball tip pork chop, \n        venison prosciutto salami t-bone hamburger cupim tenderloin tail."], ["created_at", "2020-06-06 00:42:21.497743"], ["updated_at", "2020-06-06 00:42:21.497743"], ["slug", "my-blog-post-6"], ["topic_id", 3]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTopic Load (0.3ms)[0m  [1m[34mSELECT "topics".* FROM "topics" ORDER BY "topics"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mBlog Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "blogs" WHERE "blogs"."id" IS NOT NULL AND "blogs"."slug" = $1 LIMIT $2[0m  [["slug", "my-blog-post-7"], ["LIMIT", 1]]
+  [1m[36mTopic Load (0.2ms)[0m  [1m[34mSELECT "topics".* FROM "topics" WHERE "topics"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mBlog Create (0.5ms)[0m  [1m[32mINSERT INTO "blogs" ("title", "body", "created_at", "updated_at", "slug", "topic_id") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["title", "My blog Post 7"], ["body", "Corned beef rump swine meatball pork chop short ribs t-bone sirloin chicken bacon pork loin leberkas frankfurter shank. \n        Tongue beef ribs cupim flank swine pancetta. Boudin pork pork belly pork loin filet mignon cow, tongue chislic tenderloin meatloaf pig. Chicken rump spare ribs ham hock kielbasa shoulder chuck kevin frankfurter swine ground round shankle strip steak. \n        Buffalo ball tip pork chop, \n        venison prosciutto salami t-bone hamburger cupim tenderloin tail."], ["created_at", "2020-06-06 00:42:21.509320"], ["updated_at", "2020-06-06 00:42:21.509320"], ["slug", "my-blog-post-7"], ["topic_id", 3]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTopic Load (0.3ms)[0m  [1m[34mSELECT "topics".* FROM "topics" ORDER BY "topics"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mBlog Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "blogs" WHERE "blogs"."id" IS NOT NULL AND "blogs"."slug" = $1 LIMIT $2[0m  [["slug", "my-blog-post-8"], ["LIMIT", 1]]
+  [1m[36mTopic Load (0.2ms)[0m  [1m[34mSELECT "topics".* FROM "topics" WHERE "topics"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mBlog Create (0.4ms)[0m  [1m[32mINSERT INTO "blogs" ("title", "body", "created_at", "updated_at", "slug", "topic_id") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["title", "My blog Post 8"], ["body", "Corned beef rump swine meatball pork chop short ribs t-bone sirloin chicken bacon pork loin leberkas frankfurter shank. \n        Tongue beef ribs cupim flank swine pancetta. Boudin pork pork belly pork loin filet mignon cow, tongue chislic tenderloin meatloaf pig. Chicken rump spare ribs ham hock kielbasa shoulder chuck kevin frankfurter swine ground round shankle strip steak. \n        Buffalo ball tip pork chop, \n        venison prosciutto salami t-bone hamburger cupim tenderloin tail."], ["created_at", "2020-06-06 00:42:21.519121"], ["updated_at", "2020-06-06 00:42:21.519121"], ["slug", "my-blog-post-8"], ["topic_id", 3]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTopic Load (0.3ms)[0m  [1m[34mSELECT "topics".* FROM "topics" ORDER BY "topics"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mBlog Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "blogs" WHERE "blogs"."id" IS NOT NULL AND "blogs"."slug" = $1 LIMIT $2[0m  [["slug", "my-blog-post-9"], ["LIMIT", 1]]
+  [1m[36mTopic Load (0.2ms)[0m  [1m[34mSELECT "topics".* FROM "topics" WHERE "topics"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mBlog Create (0.4ms)[0m  [1m[32mINSERT INTO "blogs" ("title", "body", "created_at", "updated_at", "slug", "topic_id") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["title", "My blog Post 9"], ["body", "Corned beef rump swine meatball pork chop short ribs t-bone sirloin chicken bacon pork loin leberkas frankfurter shank. \n        Tongue beef ribs cupim flank swine pancetta. Boudin pork pork belly pork loin filet mignon cow, tongue chislic tenderloin meatloaf pig. Chicken rump spare ribs ham hock kielbasa shoulder chuck kevin frankfurter swine ground round shankle strip steak. \n        Buffalo ball tip pork chop, \n        venison prosciutto salami t-bone hamburger cupim tenderloin tail."], ["created_at", "2020-06-06 00:42:21.527935"], ["updated_at", "2020-06-06 00:42:21.527935"], ["slug", "my-blog-post-9"], ["topic_id", 3]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mSkill Create (0.9ms)[0m  [1m[32mINSERT INTO "skills" ("title", "percent_utilized", "created_at", "updated_at", "badge") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["title", "Rails 0"], ["percent_utilized", 15], ["created_at", "2020-06-06 00:42:21.546980"], ["updated_at", "2020-06-06 00:42:21.546980"], ["badge", "http://placehold.it/250x250"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mSkill Create (0.3ms)[0m  [1m[32mINSERT INTO "skills" ("title", "percent_utilized", "created_at", "updated_at", "badge") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["title", "Rails 1"], ["percent_utilized", 15], ["created_at", "2020-06-06 00:42:21.551961"], ["updated_at", "2020-06-06 00:42:21.551961"], ["badge", "http://placehold.it/250x250"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mSkill Create (0.3ms)[0m  [1m[32mINSERT INTO "skills" ("title", "percent_utilized", "created_at", "updated_at", "badge") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["title", "Rails 2"], ["percent_utilized", 15], ["created_at", "2020-06-06 00:42:21.555969"], ["updated_at", "2020-06-06 00:42:21.555969"], ["badge", "http://placehold.it/250x250"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mSkill Create (0.3ms)[0m  [1m[32mINSERT INTO "skills" ("title", "percent_utilized", "created_at", "updated_at", "badge") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["title", "Rails 3"], ["percent_utilized", 15], ["created_at", "2020-06-06 00:42:21.559980"], ["updated_at", "2020-06-06 00:42:21.559980"], ["badge", "http://placehold.it/250x250"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mSkill Create (0.4ms)[0m  [1m[32mINSERT INTO "skills" ("title", "percent_utilized", "created_at", "updated_at", "badge") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["title", "Rails 4"], ["percent_utilized", 15], ["created_at", "2020-06-06 00:42:21.563997"], ["updated_at", "2020-06-06 00:42:21.563997"], ["badge", "http://placehold.it/250x250"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mProject Create (0.9ms)[0m  [1m[32mINSERT INTO "projects" ("title", "subtitle", "body", "main_image", "thumb_image", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["title", "Portfolio title: 0"], ["subtitle", "React"], ["body", "Bacon ipsum dolor amet short loin flank sausage beef ribs pork chop. \n        Prosciutto porchetta \n        spare ribs pork, ham hock filet mignon \n        jowl brisket doner chicken shoulder. Spare ribs leberkas tongue,"], ["main_image", "http://placehold.it/600x400"], ["thumb_image", "http://placehold.it/350x200"], ["created_at", "2020-06-06 00:42:21.585686"], ["updated_at", "2020-06-06 00:42:21.585686"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mProject Create (0.4ms)[0m  [1m[32mINSERT INTO "projects" ("title", "subtitle", "body", "main_image", "thumb_image", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["title", "Portfolio title: 0"], ["subtitle", "Ruby on Rails"], ["body", "Bacon ipsum dolor amet short loin flank sausage beef ribs pork chop. \n        Prosciutto porchetta \n        spare ribs pork, ham hock filet mignon \n        jowl brisket doner chicken shoulder. Spare ribs leberkas tongue,"], ["main_image", "http://placehold.it/600x400"], ["thumb_image", "http://placehold.it/350x200"], ["created_at", "2020-06-06 00:42:21.591497"], ["updated_at", "2020-06-06 00:42:21.591497"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mProject Create (0.3ms)[0m  [1m[32mINSERT INTO "projects" ("title", "subtitle", "body", "main_image", "thumb_image", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["title", "Portfolio title: 1"], ["subtitle", "Ruby on Rails"], ["body", "Bacon ipsum dolor amet short loin flank sausage beef ribs pork chop. \n        Prosciutto porchetta \n        spare ribs pork, ham hock filet mignon \n        jowl brisket doner chicken shoulder. Spare ribs leberkas tongue,"], ["main_image", "http://placehold.it/600x400"], ["thumb_image", "http://placehold.it/350x200"], ["created_at", "2020-06-06 00:42:21.595772"], ["updated_at", "2020-06-06 00:42:21.595772"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mProject Create (0.3ms)[0m  [1m[32mINSERT INTO "projects" ("title", "subtitle", "body", "main_image", "thumb_image", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["title", "Portfolio title: 2"], ["subtitle", "Ruby on Rails"], ["body", "Bacon ipsum dolor amet short loin flank sausage beef ribs pork chop. \n        Prosciutto porchetta \n        spare ribs pork, ham hock filet mignon \n        jowl brisket doner chicken shoulder. Spare ribs leberkas tongue,"], ["main_image", "http://placehold.it/600x400"], ["thumb_image", "http://placehold.it/350x200"], ["created_at", "2020-06-06 00:42:21.599847"], ["updated_at", "2020-06-06 00:42:21.599847"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mProject Create (0.4ms)[0m  [1m[32mINSERT INTO "projects" ("title", "subtitle", "body", "main_image", "thumb_image", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["title", "Portfolio title: 3"], ["subtitle", "Ruby on Rails"], ["body", "Bacon ipsum dolor amet short loin flank sausage beef ribs pork chop. \n        Prosciutto porchetta \n        spare ribs pork, ham hock filet mignon \n        jowl brisket doner chicken shoulder. Spare ribs leberkas tongue,"], ["main_image", "http://placehold.it/600x400"], ["thumb_image", "http://placehold.it/350x200"], ["created_at", "2020-06-06 00:42:21.604358"], ["updated_at", "2020-06-06 00:42:21.604358"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mProject Create (0.4ms)[0m  [1m[32mINSERT INTO "projects" ("title", "subtitle", "body", "main_image", "thumb_image", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["title", "Portfolio title: 4"], ["subtitle", "Ruby on Rails"], ["body", "Bacon ipsum dolor amet short loin flank sausage beef ribs pork chop. \n        Prosciutto porchetta \n        spare ribs pork, ham hock filet mignon \n        jowl brisket doner chicken shoulder. Spare ribs leberkas tongue,"], ["main_image", "http://placehold.it/600x400"], ["thumb_image", "http://placehold.it/350x200"], ["created_at", "2020-06-06 00:42:21.608997"], ["updated_at", "2020-06-06 00:42:21.608997"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mProject Create (0.4ms)[0m  [1m[32mINSERT INTO "projects" ("title", "subtitle", "body", "main_image", "thumb_image", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["title", "Portfolio title: 5"], ["subtitle", "Ruby on Rails"], ["body", "Bacon ipsum dolor amet short loin flank sausage beef ribs pork chop. \n        Prosciutto porchetta \n        spare ribs pork, ham hock filet mignon \n        jowl brisket doner chicken shoulder. Spare ribs leberkas tongue,"], ["main_image", "http://placehold.it/600x400"], ["thumb_image", "http://placehold.it/350x200"], ["created_at", "2020-06-06 00:42:21.613767"], ["updated_at", "2020-06-06 00:42:21.613767"]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mProject Create (0.5ms)[0m  [1m[32mINSERT INTO "projects" ("title", "subtitle", "body", "main_image", "thumb_image", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["title", "Portfolio title: 6"], ["subtitle", "Ruby on Rails"], ["body", "Bacon ipsum dolor amet short loin flank sausage beef ribs pork chop. \n        Prosciutto porchetta \n        spare ribs pork, ham hock filet mignon \n        jowl brisket doner chicken shoulder. Spare ribs leberkas tongue,"], ["main_image", "http://placehold.it/600x400"], ["thumb_image", "http://placehold.it/350x200"], ["created_at", "2020-06-06 00:42:21.619021"], ["updated_at", "2020-06-06 00:42:21.619021"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mProject Create (0.3ms)[0m  [1m[32mINSERT INTO "projects" ("title", "subtitle", "body", "main_image", "thumb_image", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["title", "Portfolio title: 7"], ["subtitle", "Ruby on Rails"], ["body", "Bacon ipsum dolor amet short loin flank sausage beef ribs pork chop. \n        Prosciutto porchetta \n        spare ribs pork, ham hock filet mignon \n        jowl brisket doner chicken shoulder. Spare ribs leberkas tongue,"], ["main_image", "http://placehold.it/600x400"], ["thumb_image", "http://placehold.it/350x200"], ["created_at", "2020-06-06 00:42:21.627621"], ["updated_at", "2020-06-06 00:42:21.627621"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mProject Load (0.4ms)[0m  [1m[34mSELECT "projects".* FROM "projects" ORDER BY "projects"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mProject Load (0.4ms)[0m  [1m[34mSELECT "projects".* FROM "projects" WHERE "projects"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  [1m[36mTechnology Create (1.5ms)[0m  [1m[32mINSERT INTO "technologies" ("name", "project_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "Technology 0"], ["project_id", 9], ["created_at", "2020-06-06 00:42:21.651834"], ["updated_at", "2020-06-06 00:42:21.651834"]]
+  [1m[35m (5.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mProject Load (0.5ms)[0m  [1m[34mSELECT "projects".* FROM "projects" ORDER BY "projects"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mProject Load (0.5ms)[0m  [1m[34mSELECT "projects".* FROM "projects" WHERE "projects"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  [1m[36mTechnology Create (0.7ms)[0m  [1m[32mINSERT INTO "technologies" ("name", "project_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "Technology 1"], ["project_id", 9], ["created_at", "2020-06-06 00:42:21.669465"], ["updated_at", "2020-06-06 00:42:21.669465"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mProject Load (0.3ms)[0m  [1m[34mSELECT "projects".* FROM "projects" ORDER BY "projects"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mProject Load (0.3ms)[0m  [1m[34mSELECT "projects".* FROM "projects" WHERE "projects"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  [1m[36mTechnology Create (0.5ms)[0m  [1m[32mINSERT INTO "technologies" ("name", "project_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "Technology 2"], ["project_id", 9], ["created_at", "2020-06-06 00:42:21.679401"], ["updated_at", "2020-06-06 00:42:21.679401"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
